@@ -4,18 +4,19 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function AssignovaNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activePath, setActivePath] = useState("");
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    setActivePath(window.location.pathname);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -28,12 +29,15 @@ export default function AssignovaNavigation() {
     { name: "Contact", href: "/assignova/contact" },
   ];
 
+  const handleMobileLinkClick = (href) => {
+    setIsOpen(false);
+    router.push(href);
+  };
+
   return (
     <>
       <motion.nav
-        // initial={{ y: -100 }}
-        // animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 z-50 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "backdrop-blur-xl bg-black/80 border-b border-white/10 py-3" : "bg-transparent py-6"
         }`}>
         <div className="container mx-auto px-6">
@@ -57,12 +61,14 @@ export default function AssignovaNavigation() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => {
-                const isActive = activePath === item.href;
+                const isActive = pathname === item.href;
                 return (
                   <motion.div key={item.name} className="relative">
                     <Link
                       href={item.href}
-                      className={`text-sm font-medium transition-colors ${isActive ? "text-white" : "text-gray-400 hover:text-white"}`}>
+                      className={`text-sm font-medium transition-colors relative ${
+                        isActive ? "text-white" : "text-gray-400 hover:text-white"
+                      }`}>
                       {item.name}
                     </Link>
                     {isActive && (
@@ -78,14 +84,15 @@ export default function AssignovaNavigation() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold overflow-hidden">
+                className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold overflow-hidden"
+                onClick={() => router.push("/assignova/contact")}>
                 <span className="relative z-10">Start Project</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </motion.button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-300 hover:text-white transition-colors">
+            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-300 hover:text-white transition-colors z-50">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -96,10 +103,11 @@ export default function AssignovaNavigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            key="mobile-menu"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            className="fixed inset-0 bg-gray-900 z-40 md:hidden pt-20">
+            className="fixed inset-0 bg-gray-900/95 backdrop-blur-md z-40 md:hidden pt-20">
             <div className="container mx-auto px-6">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item, index) => (
@@ -107,23 +115,24 @@ export default function AssignovaNavigation() {
                     key={item.name}
                     initial={{ x: 50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center justify-between text-lg font-medium py-4 border-b border-gray-800 ${
-                        activePath === item.href ? "text-white" : "text-gray-400 hover:text-white"
+                    transition={{ delay: index * 0.1 }}
+                    className="border-b border-gray-800">
+                    <button
+                      onClick={() => handleMobileLinkClick(item.href)}
+                      className={`flex items-center justify-between w-full text-lg font-medium py-4 ${
+                        pathname === item.href ? "text-white" : "text-gray-400 hover:text-white"
                       }`}>
-                      {item.name}
+                      <span>{item.name}</span>
                       <ChevronRight className="w-5 h-5" />
-                    </Link>
+                    </button>
                   </motion.div>
                 ))}
                 <motion.button
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all">
+                  className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all"
+                  onClick={() => handleMobileLinkClick("/assignova/contact")}>
                   Start Your Project
                 </motion.button>
               </div>
