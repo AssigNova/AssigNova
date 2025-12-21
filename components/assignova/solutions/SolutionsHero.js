@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Puzzle,
@@ -27,6 +27,22 @@ export default function SolutionsHero() {
   // Change this line:
   const [hoveredFace, setHoveredFace] = useState(null);
   const [cubeRotation, setCubeRotation] = useState({ x: 0, y: 0 });
+  const [isMounted, setIsMounted] = useState(false);
+  const [randomValues, setRandomValues] = useState([]);
+
+  useEffect(() => {
+    // Generate random values only once on the client
+    const values = [...Array(8)].map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      targetX: Math.random() * 100,
+      targetY: Math.random() * 100,
+      duration: Math.random() * 30 + 30,
+      fontSize: Math.random() * 10 + 8,
+    }));
+    setRandomValues(values);
+    setIsMounted(true);
+  }, []);
 
   const solutionPillars = [
     {
@@ -185,29 +201,30 @@ export default function SolutionsHero() {
         </motion.div>
 
         {/* Floating Code Snippets */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{
-              x: Math.random() * 100 + "vw",
-              y: Math.random() * 100 + "vh",
-              rotate: 0,
-            }}
-            animate={{
-              x: [null, Math.random() * 100 + "vw"],
-              y: [null, Math.random() * 100 + "vh"],
-              rotate: 360,
-            }}
-            transition={{
-              duration: Math.random() * 30 + 30,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="absolute text-blue-400/10 font-mono text-sm"
-            style={{ fontSize: `${Math.random() * 10 + 8}px` }}>
-            {`<${["div", "component", "module", "service"][i % 4]} />`}
-          </motion.div>
-        ))}
+        {isMounted &&
+          randomValues.map((val, i) => (
+            <motion.div
+              key={i}
+              initial={{
+                x: val.left + "vw",
+                y: val.top + "vh",
+                rotate: 0,
+              }}
+              animate={{
+                x: [null, val.targetX + "vw"],
+                y: [null, val.targetY + "vh"],
+                rotate: 360,
+              }}
+              transition={{
+                duration: val.duration,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="absolute text-blue-400/10 font-mono text-sm"
+              style={{ fontSize: `${val.fontSize + 3}px` }}>
+              {`<${["div", "component", "module", "service"][i % 4]} />`}
+            </motion.div>
+          ))}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

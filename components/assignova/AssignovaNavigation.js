@@ -45,9 +45,14 @@ export default function AssignovaNavigation() {
             {/* Logo */}
             <Link href="/assignova" className="flex items-center space-x-3 group">
               <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }} className="relative">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
+                {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center overflow-hidden"> */}
+                {/* Using a placeholder - replace with your actual logo */}
+                <div className="w-20 h-20 relative flex items-center justify-center">
+                  {/* <div className="text-xl font-bold text-white">AN</div> */}
+
+                  <img src="/AssigNova-final-Logo.png" alt="Test" className="w-20 h-20 object-contain drop-shadow-md" />
                 </div>
+                {/* </div> */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
               </motion.div>
               <div>
