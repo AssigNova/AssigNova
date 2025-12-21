@@ -36,7 +36,16 @@ export default function AssignovaHero() {
 
   return (
     <>
-      <div style={{ width: "100%", height: "650px", position: "absolute", zIndex: "40", opacity: "0.5" }}>
+      {/* Fixed: Added pointer-events-none to prevent interaction with particles */}
+      <div
+        style={{
+          width: "100%",
+          height: "650px",
+          position: "absolute",
+          zIndex: "30",
+          opacity: "0.5",
+          pointerEvents: "none", // This allows clicks to pass through
+        }}>
         <Antigravity
           count={200}
           magnetRadius={6}
