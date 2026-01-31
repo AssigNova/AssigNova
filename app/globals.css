@@ -73,31 +73,40 @@
   }
 
   .grid-pattern {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
   .dark .grid-pattern {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   }
 
   .neon-glow {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(236, 72, 153, 0.1);
+    box-shadow:
+      0 0 20px rgba(59, 130, 246, 0.5),
+      0 0 40px rgba(139, 92, 246, 0.3),
+      0 0 60px rgba(236, 72, 153, 0.1);
   }
 
   .gradient-border {
     position: relative;
     border: double 2px transparent;
     border-radius: 12px;
-    background-image: linear-gradient(black, black), linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    background-image:
+      linear-gradient(black, black),
+      linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
     background-origin: border-box;
     background-clip: padding-box, border-box;
   }
 
   .dark .gradient-border {
-    background-image: linear-gradient(#111827, #111827), linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    background-image:
+      linear-gradient(#111827, #111827),
+      linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
   }
 }
 /* ---break--- 
@@ -241,4 +250,7 @@
 
 .animate-on-scroll {
   opacity: 0;
+}
+.input {
+  @apply rounded-lg bg-black border border-white/10 p-4 text-white;
 }
