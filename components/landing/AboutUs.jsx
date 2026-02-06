@@ -36,7 +36,7 @@ export default function AboutUs() {
 
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-5 rounded-xl border border-gray-700">
-                <div className="text-3xl font-bold text-blue-400 mb-2">10+</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">90+</div>
                 <p className="text-sm text-gray-400">Projects Delivered</p>
               </div>
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-5 rounded-xl border border-gray-700">
@@ -53,7 +53,7 @@ export default function AboutUs() {
               </div>
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-5 rounded-xl border border-gray-700">
                 <div className="text-3xl font-bold text-yellow-400 mb-2">
-                  5+
+                  15+
                 </div>
                 <p className="text-sm text-gray-400">Expert Team</p>
               </div>

@@ -9,50 +9,50 @@ export default function Portfolio() {
     {
       id: 1,
       title: "HealthCare",
-      category: "web-design",
-      tech: ["Drupal", "Google Maps API", "Contact Forms"],
+      category: "healthcare",
+      tech: ["Drupal", "WordPress", "PHP"],
       image: "bg-gradient-to-br from-pink-700/30 to-purple-700/30",
-      desc: "Complete wedding planning with vendor management",
+      desc: "Secure, compliant digital solutions for healthcare",
     },
     {
       id: 2,
       title: "Reatails & E-commerce",
       category: "ecommerce",
-      tech: ["OpenCart", "Razorpay", "Shiprocket"],
+      tech: ["OpenCart", "Razorpay", "WooCommerce"],
       image: "bg-gradient-to-br from-yellow-700/30 to-amber-700/30",
-      desc: "Secure online jewelry shopping with invoice generation",
+      desc: "Scalable online stores that drive sales",
     },
     {
       id: 3,
       title: "Education & eLearning",
-      category: "web-app",
+      category: "education",
       tech: ["React", "Node.js", "MongoDB"],
       image: "bg-gradient-to-br from-blue-700/30 to-cyan-700/30",
-      desc: "Local tour booking with catalog management",
+      desc: "Interactive learning platforms built for growth",
     },
     {
       id: 4,
       title: "Travel & Tourism",
-      category: "web-design",
-      tech: ["WordPress", "Multi-step Forms", "Blog CMS"],
+      category: "travel",
+      tech: ["WordPress", "Node.js", "Next.js,"],
       image: "bg-gradient-to-br from-green-700/30 to-emerald-700/30",
       desc: "Service booking and community platform",
     },
     {
       id: 5,
       title: "Logistics",
-      category: "ecommerce",
-      tech: ["POS", "Custom CMS", "Payment Gateway"],
+      category: "logistics",
+      tech: ["POS", "POS APIs", "MySQL,"],
       image: "bg-gradient-to-br from-red-700/30 to-orange-700/30",
-      desc: "Traditional craftsmanship showcase with e-commerce",
+      desc: "Smart logistics systems for real-time control",
     },
     {
       id: 6,
       title: "Technology & Consultancy",
-      category: "ecommerce",
-      tech: ["OpenCart", "Bootstrap", "MySQL"],
+      category: "technology",
+      tech: ["React", "Next.js", "Node.js"],
       image: "bg-gradient-to-br from-purple-700/30 to-indigo-700/30",
-      desc: "Gemstone trading platform with secure payments",
+      desc: "Innovative digital solutions for modern businesses",
     },
   ];
 
@@ -117,7 +117,17 @@ export default function Portfolio() {
                     ? "💻"
                     : item.category === "ecommerce"
                       ? "🛒"
-                      : "🚀"}
+                      : item.category === "education"
+                        ? "🚀"
+                        : item.category === "healthcare"
+                          ? "🏥"
+                          : item.category === "travel"
+                            ? "✈️"
+                            : item.category === "logistics"
+                              ? "🚚"
+                              : item.category === "technology"
+                                ? "💡"
+                                : ""}
                 </div>
               </div>
 

@@ -226,11 +226,11 @@ export default function ContactSection() {
         </div>
 
         {/* Map Section */}
-        <div className="mt-12">
+        {/* <div className="mt-12">
           <div className="bg-gradient-to-r from-blue-900/10 to-purple-900/10 rounded-2xl p-8 border border-gray-800">
             <div className="flex flex-wrap items-center justify-between mb-6">
               <div>
-                <h3 className="text-2xl font-bold mb-2">Global Presence</h3>
+                <h3 className="text-2xl font-bold mb-2">Our Presence</h3>
                 <p className="text-gray-400">
                   Serving clients across 5+ countries
                 </p>
@@ -241,7 +241,7 @@ export default function ContactSection() {
                   <div className="text-sm text-gray-400">Offices</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400">50+</div>
+                  <div className="text-2xl font-bold text-purple-400">15+</div>
                   <div className="text-sm text-gray-400">Team Members</div>
                 </div>
                 <div className="text-center">
@@ -251,7 +251,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Map Visualization */}
             <div className="h-64 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl flex items-center justify-center border border-gray-700">
               <div className="text-center">
                 <div className="text-5xl mb-4">🌍</div>
@@ -259,7 +258,7 @@ export default function ContactSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

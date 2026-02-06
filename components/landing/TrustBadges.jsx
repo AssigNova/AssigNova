@@ -2,8 +2,7 @@
 export default function TrustBadges() {
   const badges = [
     { text: "Best in Segment", icon: "🏅" },
-    { text: "10+ Happy Clients", icon: "😊" },
-    { text: "25+ Countries Served", icon: "🌍" },
+    { text: "90+ Happy Clients", icon: "😊" },
     { text: "3+ Years Experience", icon: "📅" },
     { text: "24/7 Support", icon: "🛡️" },
     { text: "Money-Back Guarantee", icon: "💯" },
@@ -15,7 +14,7 @@ export default function TrustBadges() {
         <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
           Trusted by Industry Leaders Worldwide
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-7">
           {badges.map((badge, index) => (
             <div
               key={index}
@@ -30,7 +29,7 @@ export default function TrustBadges() {
         {/* Company Logos */}
         <div className="mt-12">
           <p className="text-center text-gray-400 mb-6">
-            Trusted by top brands
+            Our Esteemed Partners and Clients
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {Array.from({ length: 8 }).map((_, i) => (
