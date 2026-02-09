@@ -8,7 +8,7 @@ export default function AboutUs() {
           <div>
             <h2 className="text-4xl font-bold mb-6">
               About{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="gradient bg-clip-text text-transparent">
                 AssigNova
               </span>
             </h2>

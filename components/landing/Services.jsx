@@ -32,7 +32,7 @@ export default function Services() {
       <div className="container mx-auto px-5">
         <h2 className="text-4xl font-bold text-center mb-12">
           Comprehensive{" "}
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <span className="gradient bg-clip-text text-transparent">
             Website Design Services
           </span>
         </h2>

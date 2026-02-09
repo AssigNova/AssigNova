@@ -193,7 +193,7 @@ export default function QuoteForm({ position = "hero" }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 py-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="flex-1 py-3 bg-gradient-to-r from-[#02205c] to-[#9cb1d7] rounded-lg font-semibold hover:from-green-600 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {isSubmitting ? "Submitting..." : "Submit Request"}
             </button>

@@ -233,6 +233,18 @@
   }
 }
 
+h1,
+h2,
+h3 {
+  color: #a0a0a0;
+}
+.gradient {
+  /* background: linear-gradient(to right, #9cb1d7, #02205c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; */
+  color: #a0a0a0;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;

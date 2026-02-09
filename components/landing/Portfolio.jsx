@@ -79,7 +79,7 @@ export default function Portfolio() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
             We Create{" "}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="gradient bg-clip-text text-transparent">
               Websites for Various Industries
             </span>
           </h2>

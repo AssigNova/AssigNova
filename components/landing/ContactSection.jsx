@@ -59,7 +59,7 @@ export default function ContactSection() {
           <div>
             <h2 className="text-4xl font-bold mb-6">
               Get in{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="gradient bg-clip-text text-transparent">
                 Touch
               </span>
             </h2>
@@ -299,7 +299,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-4 bg-gradient-to-r from-[#02205c] to-[#9cb1d7] rounded-lg font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </button>

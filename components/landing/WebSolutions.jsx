@@ -59,7 +59,7 @@ export default function WebSolutions() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600  to-blue-500 bg-clip-text text-transparent">
+            <span className="gradient bg-clip-text text-transparent">
               Website Design and Web Development Services
             </span>
             You Can Trust{" "}
