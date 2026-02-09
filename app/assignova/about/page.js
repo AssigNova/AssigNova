@@ -2,7 +2,18 @@
 
 import GhostCursor from "@/components/GhostCursor";
 import TrueFocus from "@/components/TrueFocus";
-import { Sparkles, Target, Users, Zap, Globe, Award, Code, ChevronRight, ArrowUpRight, Rocket } from "lucide-react";
+import {
+  Sparkles,
+  Target,
+  Users,
+  Zap,
+  Globe,
+  Award,
+  Code,
+  ChevronRight,
+  ArrowUpRight,
+  Rocket,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function About() {
@@ -24,31 +35,36 @@ export default function About() {
     {
       icon: Target,
       title: "Precision",
-      description: "Every pixel, every line of code is crafted with intention and purpose.",
+      description:
+        "Every pixel, every line of code is crafted with intention and purpose.",
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: Users,
       title: "Collaboration",
-      description: "We work with you, not just for you. Your vision becomes our mission.",
+      description:
+        "We work with you, not just for you. Your vision becomes our mission.",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Zap,
       title: "Innovation",
-      description: "Constantly pushing boundaries with cutting-edge technologies.",
+      description:
+        "Constantly pushing boundaries with cutting-edge technologies.",
       color: "from-yellow-500 to-orange-500",
     },
     {
       icon: Globe,
       title: "Global Impact",
-      description: "Building solutions that transcend borders and transform industries.",
+      description:
+        "Building solutions that transcend borders and transform industries.",
       color: "from-green-500 to-emerald-500",
     },
     {
       icon: Award,
       title: "Excellence",
-      description: "Setting new standards for quality and performance in every project.",
+      description:
+        "Setting new standards for quality and performance in every project.",
       color: "from-red-500 to-pink-500",
     },
     {
@@ -60,8 +76,8 @@ export default function About() {
   ];
 
   const stats = [
-    { number: "50+", label: "Projects Completed", suffix: "" },
-    { number: "99", label: "Client Satisfaction", suffix: "%" },
+    { number: "90+", label: "Projects Completed", suffix: "" },
+    { number: "100", label: "Client Satisfaction", suffix: "%" },
     { number: "3", label: "Years of Excellence", suffix: "+" },
     { number: "24/7", label: "Support", suffix: "" },
     { number: "15", label: "Team Members", suffix: "+" },
@@ -70,25 +86,25 @@ export default function About() {
 
   const team = [
     {
-      name: "Alex Morgan",
+      name: "Ahrar Arif",
       role: "Founder & CEO",
       expertise: "Full-Stack Architecture",
       color: "from-purple-500 to-pink-500",
     },
     {
-      name: "Sam Rivera",
+      name: "Kaif Vohra",
       role: "Lead Designer",
       expertise: "UI/UX & Motion Design",
       color: "from-blue-500 to-cyan-500",
     },
     {
-      name: "Jordan Lee",
+      name: "Javed Akhtar",
       role: "CTO",
       expertise: "Cloud & DevOps",
       color: "from-green-500 to-emerald-500",
     },
     {
-      name: "Taylor Kim",
+      name: "Shafin Vohra",
       role: "Product Manager",
       expertise: "Agile Development",
       color: "from-orange-500 to-yellow-500",
@@ -134,7 +150,8 @@ export default function About() {
               ease-in-out
               group-hover:text-white
               group-hover:drop-shadow-[0_0_25px_rgba(177,158,239,0.35)]
-            ">
+            "
+            >
               <div className="text-5xl text-neutral-400 md:text-7xl font-bold tracking-tighter">
                 <TrueFocus
                   sentence="Assig Nova"
@@ -174,10 +191,14 @@ export default function About() {
               hover:scale-[1.02]
               hover:border-[#B19EEF]/60
               hover:bg-white/10
-              ">
-              <h3 className="text-xl font-semibold mb-3 text-[#B19EEF]">Our Mission</h3>
+              "
+            >
+              <h3 className="text-xl font-semibold mb-3 text-[#B19EEF]">
+                Our Mission
+              </h3>
               <p className="text-gray-900 text-sm leading-relaxed">
-                We strip away the unnecessary to build digital experiences that are intuitive, impactful, and designed to last.
+                We strip away the unnecessary to build digital experiences that
+                are intuitive, impactful, and designed to last.
               </p>
             </div>
 
@@ -201,10 +222,14 @@ export default function About() {
               hover:scale-[1.02]
               hover:border-[#B19EEF]/60
               hover:bg-white/10
-            ">
-              <h3 className="text-xl font-semibold mb-3 text-[#B19EEF]">The Craft</h3>
+            "
+            >
+              <h3 className="text-xl font-semibold mb-3 text-[#B19EEF]">
+                The Craft
+              </h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Combining motion design with robust engineering. We ensure your brand doesn't just function—it performs.
+                Combining motion design with robust engineering. We ensure your
+                brand doesn't just function—it performs.
               </p>
             </div>
 
@@ -229,10 +254,14 @@ export default function About() {
               hover:scale-[1.02]
               hover:border-[#B19EEF]/60
               hover:bg-white/10
-            ">
-              <h3 className="text-xl font-semibold mb-3 text-[#ccc1f1]">Future Ready</h3>
+            "
+            >
+              <h3 className="text-xl font-semibold mb-3 text-[#ccc1f1]">
+                Future Ready
+              </h3>
               <p className=" text-gray-900 text-sm leading-relaxed">
-                Constantly pushing boundaries. We explore new frameworks to set new standards for modern web development.
+                Constantly pushing boundaries. We explore new frameworks to set
+                new standards for modern web development.
               </p>
             </div>
           </div>
@@ -251,7 +280,9 @@ export default function About() {
           <div className="flex justify-center mb-8">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 px-4 py-2 rounded-full backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-sm font-medium text-purple-300">About Assignova</span>
+              <span className="text-sm font-medium text-purple-300">
+                About Assignova
+              </span>
             </div>
           </div>
 
@@ -260,12 +291,15 @@ export default function About() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center hover:border-purple-500/30 transition-all duration-300">
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center hover:border-purple-500/30 transition-all duration-300"
+              >
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
                   {stat.number}
                   {stat.suffix}
                 </div>
-                <div className="text-xs sm:text-sm text-gray-400">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-gray-400">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -277,10 +311,14 @@ export default function About() {
                 <Target className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">Our Mission</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">
+                  Our Mission
+                </h3>
                 <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
-                  We strip away the unnecessary to build digital experiences that are intuitive, impactful, and designed to last. Our
-                  mission is to empower businesses with cutting-edge technology solutions that drive growth, innovation, and sustainable
+                  We strip away the unnecessary to build digital experiences
+                  that are intuitive, impactful, and designed to last. Our
+                  mission is to empower businesses with cutting-edge technology
+                  solutions that drive growth, innovation, and sustainable
                   success in the digital age.
                 </p>
               </div>
@@ -293,10 +331,14 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Core Values</span>
+              Our{" "}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Core Values
+              </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              The principles that guide every decision and every line of code we write
+              The principles that guide every decision and every line of code we
+              write
             </p>
           </div>
 
@@ -306,13 +348,19 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 hover:border-purple-500/30 transition-all duration-500 hover:-translate-y-2">
+                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 hover:border-purple-500/30 transition-all duration-500 hover:-translate-y-2"
+                >
                   <div
-                    className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${item.color}/20 border ${item.color.split(" ")[0]}/30 mb-6`}>
+                    className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${item.color}/20 border ${item.color.split(" ")[0]}/30 mb-6`}
+                  >
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">{item.title}</h3>
-                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    {item.description}
+                  </p>
                   <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ChevronRight className="w-5 h-5 text-purple-400" />
                   </div>
@@ -327,7 +375,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Meet Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Leadership</span>
+              Meet Our{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Leadership
+              </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
               The brilliant minds driving innovation and excellence at Assignova
@@ -338,20 +389,33 @@ export default function About() {
             {team.map((member, index) => (
               <div
                 key={index}
-                className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-white/20 transition-all duration-500 hover:-translate-y-2">
-                <div className={`h-2 w-full rounded-t-lg absolute top-0 left-0 bg-gradient-to-r ${member.color} mb-6`} />
+                className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-white/20 transition-all duration-500 hover:-translate-y-2"
+              >
+                <div
+                  className={`h-2 w-full rounded-t-lg absolute top-0 left-0 bg-gradient-to-r ${member.color} mb-6`}
+                />
                 <div className="mt-4">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                      <p className="text-sm text-gray-400 mt-1">{member.role}</p>
+                      <h3 className="text-xl font-bold text-white">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm text-gray-400 mt-1">
+                        {member.role}
+                      </p>
                     </div>
                     <ArrowUpRight className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
                   </div>
-                  <p className="text-sm text-gray-400 mb-4">{member.expertise}</p>
+                  <p className="text-sm text-gray-400 mb-4">
+                    {member.expertise}
+                  </p>
                   <div className="flex items-center space-x-2">
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${member.color}`} />
-                    <span className="text-xs text-gray-500">Available for projects</span>
+                    <div
+                      className={`w-2 h-2 rounded-full bg-gradient-to-r ${member.color}`}
+                    />
+                    <span className="text-xs text-gray-500">
+                      Available for projects
+                    </span>
                   </div>
                 </div>
               </div>
@@ -364,10 +428,14 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">Tech Stack</span>
+              Our{" "}
+              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                Tech Stack
+              </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Built with modern technologies for scalable, high-performance solutions
+              Built with modern technologies for scalable, high-performance
+              solutions
             </p>
           </div>
 
@@ -383,14 +451,19 @@ export default function About() {
               { name: "MongoDB", color: "from-green-500 to-emerald-600" },
               { name: "PostgreSQL", color: "from-blue-400 to-indigo-500" },
               { name: "Docker", color: "from-blue-400 to-cyan-500" },
-              { name: "Kubernetes", color: "from-blue-500 to-cyan-600" },
-              { name: "GraphQL", color: "from-pink-500 to-purple-600" },
+              { name: "WordPress", color: "from-blue-500 to-cyan-600" },
+              { name: "Drupal", color: "from-pink-500 to-purple-600" },
             ].map((tech, index) => (
               <div
                 key={index}
-                className="bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:border-white/20 transition-all duration-300 group hover:scale-105">
-                <div className={`h-1 w-12 mx-auto rounded-full bg-gradient-to-r ${tech.color} mb-3`} />
-                <span className="text-sm sm:text-base font-medium text-gray-300 group-hover:text-white transition-colors">{tech.name}</span>
+                className="bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:border-white/20 transition-all duration-300 group hover:scale-105"
+              >
+                <div
+                  className={`h-1 w-12 mx-auto rounded-full bg-gradient-to-r ${tech.color} mb-3`}
+                />
+                <span className="text-sm sm:text-base font-medium text-gray-300 group-hover:text-white transition-colors">
+                  {tech.name}
+                </span>
               </div>
             ))}
           </div>
@@ -403,9 +476,12 @@ export default function About() {
             <div className="inline-flex p-3 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 mb-6">
               <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Digital Presence?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white">
+              Ready to Transform Your Digital Presence?
+            </h2>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-              Let's build something extraordinary together. Our team is ready to bring your vision to life.
+              Let's build something extraordinary together. Our team is ready to
+              bring your vision to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 flex items-center justify-center space-x-2">

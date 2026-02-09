@@ -2,6 +2,16 @@
 "use client";
 import { useState } from "react";
 
+const logos = [
+  "/logos/AGB logo.png",
+  "/logos/Bms classes logo.png",
+  "/logos/MSF logo.png",
+  "/logos/Omni print logo.png",
+  "/logos/Starnet logo.png",
+  "/logos/takeda logo.png",
+  "/logos/Procoretrade logo.png",
+];
+
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
 
@@ -163,16 +173,15 @@ export default function Portfolio() {
             Trusted by <span className="text-blue-400">Industry Leaders</span>
           </h3>
           <div className="relative overflow-hidden">
-            <div className="flex animate-scroll">
-              {Array.from({ length: 12 }).map((_, index) => (
-                <div key={index} className="flex-shrink-0 mx-8">
+            <div className="flex animate-scroll gap-16">
+              {[...logos, ...logos].map((logo, index) => (
+                <div key={index} className="flex-shrink-0">
                   <div className="w-40 h-20 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center border border-gray-700 opacity-80 hover:opacity-100 transition-opacity">
-                    <div className="text-center">
-                      <div className="text-xl mb-1">🏢</div>
-                      <span className="text-gray-300 text-sm font-medium">
-                        Client {index + 1}
-                      </span>
-                    </div>
+                    <img
+                      src={logo}
+                      alt="Client Logo"
+                      className="max-h-10 object-contain"
+                    />
                   </div>
                 </div>
               ))}

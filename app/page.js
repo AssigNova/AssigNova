@@ -7,6 +7,7 @@ import AboutUs from "@/components/landing/AboutUs";
 import WebSolutions from "@/components/landing/WebSolutions";
 import Portfolio from "@/components/landing/Portfolio";
 import ContactSection from "@/components/landing/ContactSection";
+import GoogleReviewsWidget from "@/components/landing/GoolgeReivewsWidget";
 // import FAQ from "./components/landing/FAQ";
 
 export default function LandingPage() {
@@ -14,9 +15,13 @@ export default function LandingPage() {
     <div className="bg-gradient-to-b from-gray-900 to-black">
       {/* Hero with Form */}
       <section className="relative">
-        <Hero />
-        <div className="container mx-auto px-4">
-          <QuoteForm position="hero" />
+        <div className="grid lg:grid-cols-2 gap-8 items-start py-10">
+          <div className="flex flex-col justify-center">
+            <Hero />
+          </div>
+          <div className="flex flex-col justify-center">
+            <QuoteForm position="hero" />
+          </div>
         </div>
       </section>
 
@@ -27,6 +32,7 @@ export default function LandingPage() {
       <WebSolutions />
       <Portfolio />
       <ContactSection />
+      <GoogleReviewsWidget />
       {/*  <Testimonials />
       <Industries />
       <FAQ /> */}

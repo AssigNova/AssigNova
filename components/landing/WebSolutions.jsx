@@ -42,10 +42,14 @@ export default function WebSolutions() {
     {
       category: "Additional Services",
       services: [
+        {
+          name: "Automation",
+          icon: "🤖",
+          desc: "Automated workflows and processes",
+        },
         { name: "SEO Optimization", icon: "📈", desc: "Search engine ranking" },
         { name: "Website Maintenance", icon: "🔧", desc: "Ongoing support" },
         { name: "Hosting Solutions", icon: "☁️", desc: "Reliable hosting" },
-        { name: "Security Audit", icon: "🛡️", desc: "Vulnerability testing" },
       ],
     },
   ];

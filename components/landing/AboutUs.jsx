@@ -1,4 +1,5 @@
-// components/landing/AboutUs.jsx
+"use client";
+
 export default function AboutUs() {
   return (
     <section className="py-20">
@@ -41,7 +42,7 @@ export default function AboutUs() {
               </div>
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-5 rounded-xl border border-gray-700">
                 <div className="text-3xl font-bold text-purple-400 mb-2">
-                  98%
+                  100%
                 </div>
                 <p className="text-sm text-gray-400">Client Satisfaction</p>
               </div>

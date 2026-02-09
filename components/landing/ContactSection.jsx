@@ -3,15 +3,30 @@
 import { useState } from "react";
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    service: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const contactMethods = [
     {
       icon: "📧",
       title: "Email Us",
-      details: "Info@assignova.com",
-      action: "mailto:contact@assignova.com",
-      desc: "Response within 4 hours",
+      details: "info@assignova.com",
+      action: "mailto:info@assignova.com",
+      desc: "Response within few hours",
     },
     {
       icon: "📞",
@@ -122,9 +137,52 @@ export default function ContactSection() {
 
                 <form
                   className="space-y-4"
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
-                    setIsSubmitted(true);
+                    setIsSubmitting(true);
+                    setSubmitStatus(null);
+
+                    try {
+                      const res = await fetch("/api/contact", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          name: formData.name,
+                          email: formData.email,
+                          phone: formData.phone,
+                          website: formData.company, // map company → website field in API
+                          message: formData.message,
+                          services: formData.service ? [formData.service] : [],
+                          source: "Contact Us",
+                        }),
+                      });
+
+                      const data = await res.json();
+
+                      if (res.ok) {
+                        setIsSubmitted(true);
+                        setFormData({
+                          name: "",
+                          email: "",
+                          phone: "",
+                          company: "",
+                          service: "",
+                          message: "",
+                        });
+                      } else {
+                        setSubmitStatus({
+                          type: "error",
+                          message: data.error || "Failed to send.",
+                        });
+                      }
+                    } catch (err) {
+                      setSubmitStatus({
+                        type: "error",
+                        message: "Network error. Try again.",
+                      });
+                    } finally {
+                      setIsSubmitting(false);
+                    }
                   }}
                 >
                   <div className="grid md:grid-cols-2 gap-4">
@@ -134,7 +192,10 @@ export default function ContactSection() {
                       </label>
                       <input
                         type="text"
+                        name="name"
                         required
+                        value={formData.name}
+                        onChange={handleChange}
                         className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
                         placeholder="John Doe"
                       />
@@ -145,7 +206,10 @@ export default function ContactSection() {
                       </label>
                       <input
                         type="email"
+                        name="email"
                         required
+                        value={formData.email}
+                        onChange={handleChange}
                         className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
                         placeholder="john@example.com"
                       />
@@ -159,6 +223,9 @@ export default function ContactSection() {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                         className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
                         placeholder="+91 98765 43210"
                       />
@@ -169,6 +236,9 @@ export default function ContactSection() {
                       </label>
                       <input
                         type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
                         className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
                         placeholder="Your Company"
                       />
@@ -179,7 +249,12 @@ export default function ContactSection() {
                     <label className="block text-sm font-medium mb-2">
                       Service Needed
                     </label>
-                    <select className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none">
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
+                    >
                       <option>Select a service</option>
                       <option>Website Design</option>
                       <option>Web Development</option>
@@ -194,8 +269,11 @@ export default function ContactSection() {
                       Project Details *
                     </label>
                     <textarea
+                      name="message"
                       rows="5"
                       required
+                      value={formData.message}
+                      onChange={handleChange}
                       className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
                       placeholder="Tell us about your project..."
                     />
@@ -212,12 +290,18 @@ export default function ContactSection() {
                       I agree to receive communications from AssigNova
                     </label>
                   </div>
+                  {submitStatus?.type === "error" && (
+                    <div className="p-3 rounded-lg bg-red-900/20 border border-red-500/40 text-red-300">
+                      {submitStatus.message}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               </>

@@ -19,19 +19,24 @@ const services = [
     desc: "Custom web apps with modern frameworks and scalability.",
     icon: "🚀",
   },
+  {
+    title: "Automation",
+    desc: "Automate workflows and processes to save time and scale operations.",
+    icon: "🧠",
+  },
 ];
 
 export default function Services() {
   return (
     <section className="py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-5">
         <h2 className="text-4xl font-bold text-center mb-12">
           Comprehensive{" "}
           <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
             Website Design Services
           </span>
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {services.map((service) => (
             <div
               key={service.title}

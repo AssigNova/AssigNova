@@ -1,4 +1,5 @@
-// components/landing/TrustBadges.jsx
+"use client";
+
 export default function TrustBadges() {
   const badges = [
     { text: "Best in Segment", icon: "🏅" },
@@ -27,7 +28,7 @@ export default function TrustBadges() {
         </div>
 
         {/* Company Logos */}
-        <div className="mt-12">
+        {/* <div className="mt-12">
           <p className="text-center text-gray-400 mb-6">
             Our Esteemed Partners and Clients
           </p>
@@ -43,7 +44,7 @@ export default function TrustBadges() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
