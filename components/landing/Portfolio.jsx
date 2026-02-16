@@ -83,7 +83,7 @@ export default function Portfolio() {
               Websites for Various Industries
             </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+          <p className="text-gray-900 max-w-2xl mx-auto mb-8">
             Expert web development services in India across diverse business
             verticals
           </p>
@@ -143,7 +143,7 @@ export default function Portfolio() {
 
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-400 mb-4">{item.desc}</p>
+                <p className="text-gray-900 mb-4">{item.desc}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.tech.map((tech, index) => (
@@ -170,13 +170,13 @@ export default function Portfolio() {
         {/* Client Logos Carousel */}
         <div className="mt-20">
           <h3 className="text-2xl font-bold text-center mb-8">
-            Trusted by <span className="text-blue-400">Industry Leaders</span>
+            Trusted by <span className="second-text">Industry Leaders</span>
           </h3>
           <div className="relative overflow-hidden">
             <div className="flex animate-scroll gap-16">
               {[...logos, ...logos].map((logo, index) => (
                 <div key={index} className="flex-shrink-0">
-                  <div className="w-40 h-20 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl flex items-center justify-center border border-gray-700 opacity-80 hover:opacity-100 transition-opacity">
+                  <div className="w-40 h-20 bg-gradient-to-r from-gray-300 to-gray-300 rounded-xl flex items-center justify-center border border-gray-700 opacity-80 hover:opacity-100 transition-opacity">
                     <img
                       src={logo}
                       alt="Client Logo"

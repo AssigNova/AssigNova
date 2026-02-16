@@ -52,15 +52,14 @@ export default function ContactSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section className="py-20 bg-gradient-to-b from-gray-600 to-black">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
             <h2 className="text-4xl font-bold mb-6">
-              Get in{" "}
-              <span className="gradient bg-clip-text text-transparent">
-                Touch
+              <span className="text-white bg-clip-text text-transparent">
+                Get in Touch
               </span>
             </h2>
             <p className="text-gray-400 mb-8 text-lg">
@@ -123,15 +122,17 @@ export default function ContactSection() {
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-medium"
+                  className="px-6 py-3 button-assignova rounded-lg font-medium"
                 >
                   Send Another Message
                 </button>
               </div>
             ) : (
               <>
-                <h3 className="text-2xl font-bold mb-2">Send us a message</h3>
-                <p className="text-gray-400 mb-6">
+                <h4 className="text-white-900 text-3xl font-bold mb-2">
+                  Send us a message
+                </h4>
+                <p className="text-gray-200 mb-6">
                   Fill out the form and our team will get back to you ASAP
                 </p>
 

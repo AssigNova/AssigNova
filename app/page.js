@@ -8,17 +8,20 @@ import WebSolutions from "@/components/landing/WebSolutions";
 import Portfolio from "@/components/landing/Portfolio";
 import ContactSection from "@/components/landing/ContactSection";
 import GoogleReviewsWidget from "@/components/landing/GoolgeReivewsWidget";
+import FAQ from "@/components/landing/FAQ";
 import LandingNavigation from "@/components/landing/LandingNavigation";
-// import FAQ from "./components/landing/FAQ";
-
+import ScrollSpy from "@/components/landing/ScrollSpy";
+import Testimonials from "@/components/landing/Testimonials";
+import WhatsappButton from "@/components/WhatsappButtion";
 export default function LandingPage() {
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black">
+    <div className="bg-gradient-to-b from-white to-gray-50">
       <LandingNavigation />
+      <ScrollSpy />
 
       {/* Hero with Form */}
       <section id="home" className="relative pt-20">
-        <div className="grid lg:grid-cols-2 gap-8 items-start py-10">
+        <div className="grid lg:grid-cols-2 gap-8 items-start py-10 hero-bg">
           <div className="flex flex-col justify-center">
             <Hero />
           </div>
@@ -27,18 +30,14 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
+      <section id="about">
+        <AboutUs />
+      </section>
       <section id="services">
         <Services />
       </section>
 
-      <section id="trust">
-        <TrustBadges />
-      </section>
-
-      <section id="about">
-        <AboutUs />
-      </section>
+      <TrustBadges />
 
       <section id="solutions">
         <WebSolutions />
@@ -47,12 +46,17 @@ export default function LandingPage() {
       <section id="portfolio">
         <Portfolio />
       </section>
+      <section id="testimonials">
+        <Testimonials />
+      </section>
 
       <section id="contact">
         <ContactSection />
       </section>
 
+      <FAQ />
       <GoogleReviewsWidget />
+      <WhatsappButton />
       {/*  <Testimonials />
       <Industries />
       <FAQ /> */}

@@ -7,6 +7,7 @@ import ServicesShowcase from "@/components/assignova/ServicesShowcase";
 import TechStack from "@/components/assignova/TechStack";
 import CaseStudiesPreview from "@/components/assignova/CaseStudiesPreview";
 import ContactCTA from "@/components/assignova/ContactCTA";
+import GoogleReviewsWidget from "google-reviews-widget";
 
 export default function AssignovaHome() {
   const containerRef = useRef(null);
@@ -36,7 +37,10 @@ export default function AssignovaHome() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gray-950 overflow-hidden">
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-gray-950 overflow-hidden"
+    >
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div

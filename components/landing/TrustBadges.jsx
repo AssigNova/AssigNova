@@ -10,19 +10,21 @@ export default function TrustBadges() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+    <section className="py-12 bg-gradient-to-b from-[#9ab0d9] to-[#02205c]">
       <div className="container mx-auto px-4">
-        <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
+        <h3 className="text-white-900 text-2xl font-bold text-center mb-8 ">
           Trusted by Industry Leaders Worldwide
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-7">
           {badges.map((badge, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-4 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-all"
+              className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-50 hover:border-blue-400 hover:shadow-md transition-all"
             >
               <div className="text-3xl mb-2">{badge.icon}</div>
-              <p className="text-center text-sm font-medium">{badge.text}</p>
+              <p className="text-center text-sm font-medium text-gray-900">
+                {badge.text}
+              </p>
             </div>
           ))}
         </div>

@@ -6,12 +6,14 @@ export default function LandingNavigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
+    // { label: "Home", href: "#home" },
+
+    // { label: "Trust", href: "#trust" },
+    { label: "About Us", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Trust", href: "#trust" },
-    { label: "About", href: "#about" },
-    { label: "Solutions", href: "#solutions" },
+    { label: "Web Solutions", href: "#solutions" },
     { label: "Portfolio", href: "#portfolio" },
+    { label: "Testimonials", href: "#testimonials" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -20,15 +22,21 @@ export default function LandingNavigation() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      try {
+        const path = href === "#home" ? "/" : href.replace("#", "/");
+        window.history.pushState({}, "", path);
+      } catch (e) {
+        // ignore during SSR or if window not available
+      }
     }
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-gray-900 to-gray-900/80 backdrop-blur-lg border-b border-gray-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-white to-white/90 backdrop-blur-lg border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <a href="#home" className="w-18 h-18 object-contain drop-shadow-md">
+            <a href="/" className="w-18 h-18 object-contain drop-shadow-md">
               <img src="/AssigNova-logo.svg" />
             </a>
           </div>
@@ -39,7 +47,7 @@ export default function LandingNavigation() {
               <button
                 key={item.label}
                 onClick={() => handleScroll(item.href)}
-                className="px-4 py-2 text-gray-300 hover:text-blue-400 transition-colors font-medium"
+                className="px-4 py-2 text-gray-900 hover:text-blue-600 transition-colors font-medium"
               >
                 {item.label}
               </button>
@@ -85,7 +93,7 @@ export default function LandingNavigation() {
               <button
                 key={item.label}
                 onClick={() => handleScroll(item.href)}
-                className="w-full text-left px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-gray-800/50 rounded-lg transition-colors font-medium"
+                className="w-full text-left px-4 py-2 text-gray-900 hover:text-blue-600 hover:bg-gray-100 rounded-lg transition-colors font-medium"
               >
                 {item.label}
               </button>

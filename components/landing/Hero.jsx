@@ -1,10 +1,10 @@
 export default function LandingHero() {
   return (
-    <div className="pt-20 pb-16 m-20">
-      <h3 className="text-4xl md:text-6xl  font-bold mb-6 gradient bg-clip-text text-transparent">
+    <div className="pt-10 pb-8 mx-4 my-8 lg:pt-20 lg:pb-16 lg:mx-20 lg:my-20">
+      <h4 className="text-4xl md:text-6xl  font-bold mb-6 text-white-900">
         Best Website Design Company in India and Abroad
-      </h3>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+      </h4>
+      <p className="text-xl text-white-500 max-w-3xl mx-auto mb-10">
         We deliver next-gen website design services in India for SMEs and global
         enterprises. Trusted by 10+ clients, we transform your digital future
         with high-performance web development services.
