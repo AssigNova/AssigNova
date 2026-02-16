@@ -5,10 +5,10 @@ const nextConfig = {
     unoptimized: true, // Mandatory unless using a paid external loader (e.g., Cloudinary)
   },
   /* config options here */
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
+  // output: "export",
+  // images: {
+  //   unoptimized: true,
+  // },
 };
 
 export default nextConfig;
