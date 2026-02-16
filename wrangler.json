@@ -8,6 +8,16 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "routes": [
+    {
+      "pattern": "assignova.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.assignova.com",
+      "custom_domain": true
+    }
+  ],
   "kv_namespaces": [
     {
       "binding": "NEXT_INC_CACHE_KV",
