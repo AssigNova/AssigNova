@@ -55,16 +55,16 @@ export default function WebSolutions() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900/50 to-black/50">
+    <section className="py-20 bg-gradient-to-b from-[#9ab0d9] to-[#02205c]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
             <span className="gradient bg-clip-text text-transparent">
               Website Design and Web Development Services
             </span>
-            You Can Trust{" "}
+            <span className="second-text"> You Can Trust </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-black max-w-2xl mx-auto">
             End-to-end digital solutions tailored to your business needs
           </p>
         </div>
@@ -75,9 +75,9 @@ export default function WebSolutions() {
               key={index}
               className="bg-gradient-to-b from-gray-800/30 to-gray-900/30 rounded-2xl p-6 border border-gray-700 hover:border-blue-500 transition-all"
             >
-              <h3 className="text-2xl font-bold mb-6 pb-4 border-b border-gray-700">
+              <h4 className="text-2xl font-bold mb-6 pb-4 border-b border-gray-700">
                 {solution.category}
-              </h3>
+              </h4>
               <div className="space-y-4">
                 {solution.services.map((service, sIndex) => (
                   <div

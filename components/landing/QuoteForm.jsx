@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function QuoteForm({ position = "hero" }) {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -12,25 +14,8 @@ export default function QuoteForm({ position = "hero" }) {
     phone: "",
     website: "",
     message: "",
-    services: [],
+    services: "",
   });
-
-  const servicesList = [
-    "Business Website Design",
-    "WordPress Development",
-    "E-commerce Solutions",
-    "Web Application",
-    "Website Redesign",
-    "SEO Optimization",
-  ];
-  const toggleService = (service) => {
-    setFormData((prev) => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter((s) => s !== service)
-        : [...prev.services, service],
-    }));
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -70,8 +55,12 @@ export default function QuoteForm({ position = "hero" }) {
           phone: "",
           website: "",
           message: "",
-          services: [],
+          service: "",
         });
+        // Redirect to thank you page after 1.5 seconds
+        setTimeout(() => {
+          router.push("/thank-you");
+        }, 1500);
       } else {
         setSubmitStatus({
           type: "error",
@@ -91,12 +80,12 @@ export default function QuoteForm({ position = "hero" }) {
 
   return (
     <div
-      className={`bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 ${position === "hero" ? "max-w-2xl mx-auto -mb-16 relative z-10 shadow-2xl" : "max-w-4xl mx-auto"}`}
+      className={`bg-gradient-to-b from-[#9ab0d9] to-[#02205c] backdrop-blur-lg rounded-2xl p-8 shadow-lg ${position === "hero" ? "max-w-2xl mx-auto -mb-16 relative z-10" : "max-w-4xl mx-auto"}`}
     >
-      <h3 className="text-2xl font-bold mb-2">
+      <h3 className="text-2xl font-bold mb-2 text-gray-900">
         {position === "hero" ? "Get a Free Quote Today!" : "Get Started Today!"}
       </h3>
-      <p className="text-gray-400 mb-6">
+      <p className="text-gray-600 mb-6">
         Fill the form and our experts will contact you within 24 hours
       </p>
 
@@ -111,7 +100,7 @@ export default function QuoteForm({ position = "hero" }) {
             value={formData.name}
             onChange={handleInputChange}
             required
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg"
+            className="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500"
           />
           <input
             type="email"
@@ -120,7 +109,7 @@ export default function QuoteForm({ position = "hero" }) {
             value={formData.email}
             onChange={handleInputChange}
             required
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg"
+            className="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500"
           />
           <input
             type="tel"
@@ -129,7 +118,7 @@ export default function QuoteForm({ position = "hero" }) {
             value={formData.phone}
             onChange={handleInputChange}
             required
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg"
+            className="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500"
           />
 
           <input
@@ -138,26 +127,23 @@ export default function QuoteForm({ position = "hero" }) {
             placeholder="Website URL (if any)"
             value={formData.website}
             onChange={handleInputChange}
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg"
+            className="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500"
           />
           <div>
-            <p className="mb-2">Services Needed:</p>
-
             <div className="flex flex-wrap gap-2">
-              {servicesList.map((service) => (
-                <label
-                  key={service}
-                  className="flex items-center px-3 py-2 rounded cursor-pointer bg-gray-900 border border-gray-700 hover:bg-gray-800"
-                >
-                  <input
-                    type="checkbox"
-                    checked={formData.services.includes(service)}
-                    onChange={() => toggleService(service)}
-                    className="mr-2"
-                  />
-                  <span className="text-sm">{service}</span>
-                </label>
-              ))}
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleInputChange}
+                className="w-full p-3  border bg-gray-50 border-gray-300 rounded-lg text-gray-900 focus:border-blue-500 focus:outline-none"
+              >
+                <option>Service Needed</option>
+                <option>Website Design</option>
+                <option>Web Development</option>
+                <option>E-commerce Solution</option>
+                <option>SEO & Marketing</option>
+                <option>Other</option>
+              </select>
             </div>
           </div>
         </>
@@ -170,11 +156,11 @@ export default function QuoteForm({ position = "hero" }) {
             value={formData.message}
             onChange={handleInputChange}
             required
-            className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg"
+            className="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500"
           ></textarea>
           <div className="flex items-center">
             <input type="checkbox" id="captcha" className="mr-2" required />
-            <label htmlFor="captcha" className="text-sm">
+            <label htmlFor="captcha" className="text-sm text-white-900">
               I'm not a robot
             </label>
           </div>
@@ -182,8 +168,8 @@ export default function QuoteForm({ position = "hero" }) {
             <div
               className={`p-4 rounded-lg ${
                 submitStatus.type === "success"
-                  ? "bg-green-900/20 border border-green-500/50 text-green-300"
-                  : "bg-red-900/20 border border-red-500/50 text-red-300"
+                  ? "bg-green-100 border border-green-400 text-green-800"
+                  : "bg-red-100 border border-red-400 text-red-800"
               }`}
             >
               {submitStatus.message}
@@ -193,7 +179,7 @@ export default function QuoteForm({ position = "hero" }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 py-3 bg-gradient-to-r from-[#02205c] to-[#9cb1d7] rounded-lg font-semibold hover:from-green-600 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="flex-1 py-3 bg-gradient-to-r from-[#02205c] to-[#9cb1d7] text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {isSubmitting ? "Submitting..." : "Submit Request"}
             </button>
