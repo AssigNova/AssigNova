@@ -36,7 +36,7 @@ export default function FloatingContactButtons() {
     <>
       {/* Floating Buttons Container */}
       <div
-        className={`fixed bottom-6 right-6 z-50 flex flex-col gap-4 transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 flex flex-col gap-4 transition-all duration-1000 ${
           isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
         }`}
       >
@@ -97,8 +97,6 @@ export default function FloatingContactButtons() {
             </svg>
           </a>
         </div>
-
-        {/* Scroll to Top Button (Optional) */}
       </div>
 
       {/* Small screen adjustment for bottom spacing */}

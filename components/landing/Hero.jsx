@@ -6,7 +6,7 @@ export default function LandingHero() {
       </h4>
       <p className="text-xl text-white-500 max-w-3xl mx-auto mb-10">
         We deliver next-gen website design services in India for SMEs and global
-        enterprises. Trusted by 10+ clients, we transform your digital future
+        enterprises. Trusted by 90+ clients, we transform your digital future
         with high-performance web development services.
       </p>
       {/* Trust badges will be separate component */}

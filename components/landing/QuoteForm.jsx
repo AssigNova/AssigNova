@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function QuoteForm({ position = "hero" }) {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -55,6 +57,10 @@ export default function QuoteForm({ position = "hero" }) {
           message: "",
           service: "",
         });
+        // Redirect to thank you page after 1.5 seconds
+        setTimeout(() => {
+          router.push("/thank-you");
+        }, 1500);
       } else {
         setSubmitStatus({
           type: "error",

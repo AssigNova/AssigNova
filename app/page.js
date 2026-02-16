@@ -10,14 +10,14 @@ import ContactSection from "@/components/landing/ContactSection";
 import GoogleReviewsWidget from "@/components/landing/GoolgeReivewsWidget";
 import FAQ from "@/components/landing/FAQ";
 import LandingNavigation from "@/components/landing/LandingNavigation";
-import ScrollSpy from "@/components/landing/ScrollSpy";
+// import ScrollSpy from "@/components/landing/ScrollSpy";
 import Testimonials from "@/components/landing/Testimonials";
 import WhatsappButton from "@/components/WhatsappButtion";
 export default function LandingPage() {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50">
       <LandingNavigation />
-      <ScrollSpy />
+      {/* <ScrollSpy /> */}
 
       {/* Hero with Form */}
       <section id="home" className="relative pt-20">
@@ -39,12 +39,11 @@ export default function LandingPage() {
 
       <TrustBadges />
 
-      <section id="solutions">
-        <WebSolutions />
-      </section>
-
       <section id="portfolio">
         <Portfolio />
+      </section>
+      <section id="solutions">
+        <WebSolutions />
       </section>
       <section id="testimonials">
         <Testimonials />

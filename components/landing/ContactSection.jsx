@@ -1,8 +1,10 @@
 // components/landing/ContactSection.jsx
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ContactSection() {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -52,7 +54,10 @@ export default function ContactSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-600 to-black">
+    <section
+      className="py-20 bg-gradient-to-b from-gray-600 to-black"
+      id="contact"
+    >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -80,7 +85,7 @@ export default function ContactSection() {
                     {method.icon}
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">{method.title}</h3>
+                    <h4 className="font-bold text-lg mb-1">{method.title}</h4>
                     <p className="text-blue-300 font-medium mb-1">
                       {method.details}
                     </p>
@@ -161,7 +166,10 @@ export default function ContactSection() {
                       const data = await res.json();
 
                       if (res.ok) {
-                        setIsSubmitted(true);
+                        setSubmitStatus({
+                          type: "success",
+                          message: "Message sent successfully!",
+                        });
                         setFormData({
                           name: "",
                           email: "",
@@ -170,6 +178,10 @@ export default function ContactSection() {
                           service: "",
                           message: "",
                         });
+                        // Redirect to thank you page after 1.5 seconds
+                        setTimeout(() => {
+                          router.push("/thank-you");
+                        }, 1000);
                       } else {
                         setSubmitStatus({
                           type: "error",

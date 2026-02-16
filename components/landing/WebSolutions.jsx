@@ -62,7 +62,7 @@ export default function WebSolutions() {
             <span className="gradient bg-clip-text text-transparent">
               Website Design and Web Development Services
             </span>
-            <span className="second-text">You Can Trust </span>
+            <span className="second-text"> You Can Trust </span>
           </h2>
           <p className="text-black max-w-2xl mx-auto">
             End-to-end digital solutions tailored to your business needs

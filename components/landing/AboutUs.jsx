@@ -16,7 +16,7 @@ export default function AboutUs() {
                   Leading Website Designing Company in India
                 </span>{" "}
                 specializing in diverse web design and development services for
-                large enterprises and small startups.
+                mid enterprises and small startups.
               </p>
               <p>
                 Recognized for excellence, we are dedicated to helping
@@ -25,10 +25,9 @@ export default function AboutUs() {
               </p>
               <p>
                 We cater to clients nationwide, whether you need a website
-                development company in Delhi, Mumbai, or Bangalore. Hire our
-                expert developers to build a strong online presence and achieve
-                success through our top-tier website design and development
-                services.
+                development company in Delhi or Bangalore. Hire our expert
+                developers to build a strong online presence and achieve success
+                through our top-tier website design and development services.
               </p>
             </div>
 
