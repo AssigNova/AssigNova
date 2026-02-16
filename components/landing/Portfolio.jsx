@@ -117,7 +117,7 @@ export default function Portfolio() {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group bg-gray-900/30 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all hover:scale-[1.02]"
+              className="group bg-gray-400/30 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all hover:scale-[1.02]"
             >
               <div
                 className={`h-48 ${item.image} flex items-center justify-center`}
