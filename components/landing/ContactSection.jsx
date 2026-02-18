@@ -47,7 +47,7 @@ export default function ContactSection() {
     {
       icon: "📍",
       title: "Visit Office",
-      details: "New Delhi, India",
+      details: "New Delhi, India\nBangalore, India",
       action: "https://maps.google.com",
       desc: "Schedule a meeting",
     },

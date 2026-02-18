@@ -142,7 +142,9 @@ export default function Portfolio() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-2 gradient">
+                  {item.title}
+                </h3>
                 <p className="text-gray-900 mb-4">{item.desc}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">

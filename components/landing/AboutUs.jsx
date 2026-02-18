@@ -6,8 +6,8 @@ export default function AboutUs() {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold mb-6">
-              About <span className="second-text">AssigNova</span>
+            <h2 className="text-4xl font-bold mb-6 text-heading">
+              <span className="second-text">About</span> AssigNova
             </h2>
             <div className="space-y-4 text-gray-700">
               <p className="text-lg">

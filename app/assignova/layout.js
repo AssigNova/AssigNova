@@ -1,4 +1,4 @@
-import "../globals.css";
+import "./globals.css";
 import AssignovaNavigation from "@/components/assignova/AssignovaNavigation";
 import AssignovaFooter from "@/components/assignova/AssignovaFooter";
 import WhatsappButton from "@/components/WhatsappButtion";
