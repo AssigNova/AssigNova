@@ -11,6 +11,7 @@
 @theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
+  --color-heading: var(--heading);
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
@@ -96,17 +97,13 @@
     position: relative;
     border: double 2px transparent;
     border-radius: 12px;
-    background-image:
-      linear-gradient(black, black),
-      linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    background-image: linear-gradient(black, black), linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
     background-origin: border-box;
     background-clip: padding-box, border-box;
   }
 
   .dark .gradient-border {
-    background-image:
-      linear-gradient(#111827, #111827),
-      linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    background-image: linear-gradient(#111827, #111827), linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
   }
 }
 /* ---break--- 
@@ -157,7 +154,7 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  --heading: #02205c;
+  --heading: #f8f8f8;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -193,7 +190,7 @@
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --heading: #f8f8f8;
+  --heading: #02205c;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -260,18 +257,14 @@
   }
 }
 .hero-bg {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.4)),
-    url("/bghero-mobile1.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.4)), url("/bghero-mobile1.jpg");
   background-size: cover;
   background-position: center;
 }
 
 @media (min-width: 1024px) {
   .hero-bg {
-    background-image:
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
-      url("/bghero.png");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("/bghero.png");
   }
 }
 .animate-fade-in {

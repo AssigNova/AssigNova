@@ -54,22 +54,16 @@ export default function ContactSection() {
   ];
 
   return (
-    <section
-      className="py-20 bg-gradient-to-b from-gray-600 to-black"
-      id="contact"
-    >
+    <section className="py-20 bg-gradient-to-b from-gray-600 to-black md:px-10" id="contact">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
             <h2 className="text-4xl font-bold mb-6">
-              <span className="text-white bg-clip-text text-transparent">
-                Get in Touch
-              </span>
+              <span className="text-white bg-clip-text text-transparent">Get in Touch</span>
             </h2>
             <p className="text-gray-400 mb-8 text-lg">
-              Have a project in mind? Let's discuss how we can help transform
-              your ideas into reality.
+              Have a project in mind? Let's discuss how we can help transform your ideas into reality.
             </p>
 
             <div className="space-y-6 mb-10">
@@ -79,16 +73,11 @@ export default function ContactSection() {
                   href={method.action}
                   target={method.action.startsWith("http") ? "_blank" : "_self"}
                   rel="noopener noreferrer"
-                  className="flex items-start p-4 bg-gray-800/30 rounded-xl border border-gray-700 hover:border-blue-500 transition-all group"
-                >
-                  <div className="text-3xl mr-4 group-hover:scale-110 transition-transform">
-                    {method.icon}
-                  </div>
+                  className="flex items-start p-4 bg-gray-800/30 rounded-xl border border-gray-700 hover:border-blue-500 transition-all group">
+                  <div className="text-3xl mr-4 group-hover:scale-110 transition-transform">{method.icon}</div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">{method.title}</h4>
-                    <p className="text-blue-300 font-medium mb-1">
-                      {method.details}
-                    </p>
+                    <p className="text-blue-300 font-medium mb-1">{method.details}</p>
                     <p className="text-sm text-gray-400">{method.desc}</p>
                   </div>
                 </a>
@@ -121,25 +110,15 @@ export default function ContactSection() {
               <div className="text-center py-12">
                 <div className="text-5xl mb-4">🎉</div>
                 <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
-                <p className="text-gray-400 mb-6">
-                  We've received your message and will contact you within 24
-                  hours.
-                </p>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-3 button-assignova rounded-lg font-medium"
-                >
+                <p className="text-gray-400 mb-6">We've received your message and will contact you within 24 hours.</p>
+                <button onClick={() => setIsSubmitted(false)} className="px-6 py-3 button-assignova rounded-lg font-medium">
                   Send Another Message
                 </button>
               </div>
             ) : (
               <>
-                <h4 className="text-white-900 text-3xl font-bold mb-2">
-                  Send us a message
-                </h4>
-                <p className="text-gray-200 mb-6">
-                  Fill out the form and our team will get back to you ASAP
-                </p>
+                <h4 className="text-white-900 text-3xl font-bold mb-2">Send us a message</h4>
+                <p className="text-gray-200 mb-6">Fill out the form and our team will get back to you ASAP</p>
 
                 <form
                   className="space-y-4"
@@ -196,13 +175,10 @@ export default function ContactSection() {
                     } finally {
                       setIsSubmitting(false);
                     }
-                  }}
-                >
+                  }}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Full Name *
-                      </label>
+                      <label className="block text-sm font-medium mb-2">Full Name *</label>
                       <input
                         type="text"
                         name="name"
@@ -214,9 +190,7 @@ export default function ContactSection() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Email Address *
-                      </label>
+                      <label className="block text-sm font-medium mb-2">Email Address *</label>
                       <input
                         type="email"
                         name="email"
@@ -231,9 +205,7 @@ export default function ContactSection() {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Phone Number
-                      </label>
+                      <label className="block text-sm font-medium mb-2">Phone Number</label>
                       <input
                         type="tel"
                         name="phone"
@@ -244,9 +216,7 @@ export default function ContactSection() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Company
-                      </label>
+                      <label className="block text-sm font-medium mb-2">Company</label>
                       <input
                         type="text"
                         name="company"
@@ -259,15 +229,12 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Service Needed
-                    </label>
+                    <label className="block text-sm font-medium mb-2">Service Needed</label>
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
-                    >
+                      className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none">
                       <option>Select a service</option>
                       <option>Website Design</option>
                       <option>Web Development</option>
@@ -278,9 +245,7 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Project Details *
-                    </label>
+                    <label className="block text-sm font-medium mb-2">Project Details *</label>
                     <textarea
                       name="message"
                       rows="5"
@@ -293,27 +258,19 @@ export default function ContactSection() {
                   </div>
 
                   <div className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="consent"
-                      required
-                      className="w-4 h-4 mr-3 bg-gray-800 border-gray-700"
-                    />
+                    <input type="checkbox" id="consent" required className="w-4 h-4 mr-3 bg-gray-800 border-gray-700" />
                     <label htmlFor="consent" className="text-sm">
                       I agree to receive communications from AssigNova
                     </label>
                   </div>
                   {submitStatus?.type === "error" && (
-                    <div className="p-3 rounded-lg bg-red-900/20 border border-red-500/40 text-red-300">
-                      {submitStatus.message}
-                    </div>
+                    <div className="p-3 rounded-lg bg-red-900/20 border border-red-500/40 text-red-300">{submitStatus.message}</div>
                   )}
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-gradient-to-r from-[#02205c] to-[#9cb1d7] rounded-lg font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
+                    className="w-full py-4 bg-gradient-to-r from-[#02205c] to-[#9cb1d7] rounded-lg font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>

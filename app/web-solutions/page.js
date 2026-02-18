@@ -21,7 +21,7 @@ export default function LandingPage() {
 
       {/* Hero with Form */}
       <section id="home" className="relative pt-20">
-        <div className="grid lg:grid-cols-2 gap-8 items-start py-10 hero-bg">
+        <div className="grid lg:grid-cols-2 gap-8 items-start py-10 hero-bg pb-20">
           <div className="flex flex-col justify-center">
             <Hero />
           </div>
@@ -30,16 +30,16 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      <section id="about">
+      <section id="about" className="md:px-10">
         <AboutUs />
       </section>
-      <section id="services">
+      <section id="services" className="md:px-10">
         <Services />
       </section>
 
       <TrustBadges />
 
-      <section id="Industries">
+      <section id="Industries" className="md:px-10">
         <Industries />
       </section>
       <section id="solutions">
