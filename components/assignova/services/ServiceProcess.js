@@ -73,7 +73,7 @@ export default function ServiceProcess() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Process</span>
+            Our <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Process</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             A structured, transparent approach that ensures quality delivery and successful outcomes at every stage.
@@ -136,14 +136,14 @@ export default function ServiceProcess() {
                         index === 0
                           ? "bg-gradient-to-r from-blue-500 to-cyan-500"
                           : index === 1
-                          ? "bg-gradient-to-r from-purple-500 to-pink-500"
-                          : index === 2
-                          ? "bg-gradient-to-r from-green-500 to-emerald-500"
-                          : index === 3
-                          ? "bg-gradient-to-r from-yellow-500 to-orange-500"
-                          : index === 4
-                          ? "bg-gradient-to-r from-red-500 to-pink-500"
-                          : "bg-gradient-to-r from-indigo-500 to-blue-500"
+                            ? "bg-gradient-to-r from-purple-500 to-pink-500"
+                            : index === 2
+                              ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                              : index === 3
+                                ? "bg-gradient-to-r from-yellow-500 to-orange-500"
+                                : index === 4
+                                  ? "bg-gradient-to-r from-red-500 to-pink-500"
+                                  : "bg-gradient-to-r from-indigo-500 to-blue-500"
                       }`}>
                       <span className="text-white font-bold text-xl">{step.phase}</span>
                     </motion.div>

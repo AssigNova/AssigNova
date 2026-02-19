@@ -76,7 +76,7 @@ export default function SolutionFeatures() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Built for{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
               Scale & Security
             </span>
           </h2>

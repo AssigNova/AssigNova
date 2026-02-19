@@ -245,7 +245,9 @@ export default function SolutionsHero() {
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
                   <span className="block">Smart</span>
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Solutions</span>
+                  <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+                    Solutions
+                  </span>
                   <span className="block text-gray-400 text-4xl md:text-5xl mt-6">for Modern Challenges</span>
                 </h1>
 

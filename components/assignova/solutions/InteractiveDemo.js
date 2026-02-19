@@ -107,7 +107,7 @@ export default function InteractiveDemo() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             See Our Architecture{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">In Action</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">In Action</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Experience how our architecture handles real-world scenarios with this interactive demonstration
@@ -298,8 +298,8 @@ export default function InteractiveDemo() {
                         node.type === "gateway"
                           ? "bg-gradient-to-r from-blue-500 to-cyan-500"
                           : node.type === "database"
-                          ? "bg-gradient-to-r from-green-500 to-emerald-500"
-                          : "bg-gradient-to-r from-purple-500 to-pink-500"
+                            ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                            : "bg-gradient-to-r from-purple-500 to-pink-500"
                       } rounded-xl p-4 min-w-[120px] text-center`}
                       style={{
                         left: `${node.x}%`,
@@ -362,7 +362,7 @@ export default function InteractiveDemo() {
                               : {}
                           }
                         />
-                      ))
+                      )),
                     )}
                     <defs>
                       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">

@@ -1,17 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Linkedin,
-  Twitter,
-  Github,
-  Instagram,
-  Facebook,
-  Sparkles,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Twitter, Github, Instagram, Facebook, Sparkles } from "lucide-react";
 
 export default function AssignovaFooter() {
   const currentYear = new Date().getFullYear();
@@ -25,12 +15,12 @@ export default function AssignovaFooter() {
   ];
 
   const quickLinks = [
-    { name: "Home", href: "/assignova" },
-    { name: "Services", href: "/assignova/services" },
-    { name: "Solutions", href: "/assignova/solutions" },
-    { name: "Industries", href: "/assignova/industries" },
-    { name: "Case Studies", href: "/assignova/case-studies" },
-    { name: "Contact", href: "/assignova/contact" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Solutions", href: "/solutions" },
+    { name: "Industries", href: "/industries" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const services = [
@@ -42,14 +32,7 @@ export default function AssignovaFooter() {
     "Mobile Development",
   ];
 
-  const technologies = [
-    "React & Next.js",
-    ".NET Core",
-    "Python & Django",
-    "AWS & Azure",
-    "Node.js",
-    "React Native",
-  ];
+  const technologies = ["React & Next.js", ".NET Core", "Python & Django", "AWS & Azure", "Node.js", "React Native"];
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
@@ -65,17 +48,14 @@ export default function AssignovaFooter() {
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
                   Assignova
                 </h2>
-                <p className="text-gray-400 text-sm">
-                  Next-Gen Digital Solutions
-                </p>
+                <p className="text-gray-400 text-sm">Next-Gen Digital Solutions</p>
               </div>
             </div>
             <p className="text-gray-400 mb-8 max-w-md">
-              Transforming businesses with cutting-edge technology solutions. We
-              deliver innovation, excellence, and measurable results.
+              Transforming businesses with cutting-edge technology solutions. We deliver innovation, excellence, and measurable results.
             </p>
 
             <div className="flex space-x-4">
@@ -87,8 +67,7 @@ export default function AssignovaFooter() {
                     key={link.label}
                     whileHover={{ y: -5 }}
                     href={link.href}
-                    className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors group"
-                  >
+                    className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors group">
                     <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
                   </motion.a>
                 );
@@ -102,10 +81,7 @@ export default function AssignovaFooter() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
+                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
                     {link.name}
                   </a>
                 </li>
@@ -139,9 +115,7 @@ export default function AssignovaFooter() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-400 text-sm">
-                  info@assignova.com
-                </span>
+                <span className="text-gray-400 text-sm">info@assignova.com</span>
               </li>
             </ul>
           </div>
@@ -150,27 +124,16 @@ export default function AssignovaFooter() {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-              © {currentYear} Assignova. All rights reserved.
-            </div>
+            <div className="text-gray-400 text-sm">© {currentYear} Assignova. All rights reserved.</div>
 
             <div className="flex items-center space-x-6 text-sm">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
               </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Cookie Policy
               </a>
             </div>

@@ -133,7 +133,7 @@ export default function ArchitectureShowcase() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Modern{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Architecture</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Architecture</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Scalable, maintainable, and future-proof architectural patterns designed to support your growth and innovation.
@@ -271,10 +271,10 @@ export default function ArchitectureShowcase() {
                         index === 0
                           ? "from-blue-500/20 to-cyan-500/20"
                           : index === 1
-                          ? "from-purple-500/20 to-pink-500/20"
-                          : index === 2
-                          ? "from-green-500/20 to-emerald-500/20"
-                          : "from-yellow-500/20 to-orange-500/20"
+                            ? "from-purple-500/20 to-pink-500/20"
+                            : index === 2
+                              ? "from-green-500/20 to-emerald-500/20"
+                              : "from-yellow-500/20 to-orange-500/20"
                       } rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 ${
                         isActive ? "opacity-100" : ""
                       }`}
@@ -291,10 +291,10 @@ export default function ArchitectureShowcase() {
                             index === 0
                               ? "bg-gradient-to-r from-blue-500 to-cyan-500"
                               : index === 1
-                              ? "bg-gradient-to-r from-purple-500 to-pink-500"
-                              : index === 2
-                              ? "bg-gradient-to-r from-green-500 to-emerald-500"
-                              : "bg-gradient-to-r from-yellow-500 to-orange-500"
+                                ? "bg-gradient-to-r from-purple-500 to-pink-500"
+                                : index === 2
+                                  ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                                  : "bg-gradient-to-r from-yellow-500 to-orange-500"
                           }`}>
                           <Icon className="w-8 h-8 text-white" />
                         </div>

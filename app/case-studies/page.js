@@ -439,7 +439,7 @@ export default function CaseStudiesPage() {
               </motion.div>
 
               <h1 className="text-6xl md:text-8xl font-bold mb-8">
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
                   Case Studies
                 </span>
               </h1>
@@ -967,8 +967,8 @@ export default function CaseStudiesPage() {
                             study.impact === "high"
                               ? "bg-green-500/20 text-green-400"
                               : study.impact === "medium"
-                              ? "bg-yellow-500/20 text-yellow-400"
-                              : "bg-blue-500/20 text-blue-400"
+                                ? "bg-yellow-500/20 text-yellow-400"
+                                : "bg-blue-500/20 text-blue-400"
                           }`}>
                           {study.impact.toUpperCase()} IMPACT
                         </div>
@@ -1174,8 +1174,8 @@ function CaseStudyCard({ study, index, viewMode, onSelect }) {
                     study.impact === "high"
                       ? "bg-green-500/20 text-green-400"
                       : study.impact === "medium"
-                      ? "bg-yellow-500/20 text-yellow-400"
-                      : "bg-blue-500/20 text-blue-400"
+                        ? "bg-yellow-500/20 text-yellow-400"
+                        : "bg-blue-500/20 text-blue-400"
                   }`}>
                   {study.impact.toUpperCase()} IMPACT
                 </div>
@@ -1263,8 +1263,8 @@ function CaseStudyCard({ study, index, viewMode, onSelect }) {
                 study.impact === "high"
                   ? "bg-green-500/20 text-green-400"
                   : study.impact === "medium"
-                  ? "bg-yellow-500/20 text-yellow-400"
-                  : "bg-blue-500/20 text-blue-400"
+                    ? "bg-yellow-500/20 text-yellow-400"
+                    : "bg-blue-500/20 text-blue-400"
               }`}>
               {study.impact.toUpperCase()}
             </div>
@@ -1476,8 +1476,8 @@ function CaseStudyModal({ study, onClose }) {
                           study.impact === "high"
                             ? "bg-gradient-to-r from-green-500 to-emerald-500 w-full"
                             : study.impact === "medium"
-                            ? "bg-gradient-to-r from-yellow-500 to-orange-500 w-2/3"
-                            : "bg-gradient-to-r from-blue-500 to-cyan-500 w-1/3"
+                              ? "bg-gradient-to-r from-yellow-500 to-orange-500 w-2/3"
+                              : "bg-gradient-to-r from-blue-500 to-cyan-500 w-1/3"
                         }`}
                       />
                     </div>

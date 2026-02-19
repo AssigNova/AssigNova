@@ -128,7 +128,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Industry{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Solutions</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Solutions</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Tailored digital solutions for specific industry challenges, delivering measurable results and competitive advantage.
@@ -331,10 +331,10 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                               {activeIndustry.stats.savings
                                 ? "Cost Savings"
                                 : activeIndustry.stats.accuracy
-                                ? "Accuracy"
-                                : activeIndustry.stats.growth
-                                ? "Growth"
-                                : "Engagement"}
+                                  ? "Accuracy"
+                                  : activeIndustry.stats.growth
+                                    ? "Growth"
+                                    : "Engagement"}
                             </div>
                           </div>
                         </div>

@@ -37,10 +37,7 @@ export default function AssignovaHome() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="min-h-screen bg-gray-950 overflow-hidden"
-    >
+    <div ref={containerRef} className="min-h-screen bg-gray-950 overflow-hidden">
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div

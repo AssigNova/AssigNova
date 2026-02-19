@@ -82,7 +82,9 @@ export default function ServiceConsultation() {
             className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Let's Discuss{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Your Project</span>
+              <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+                Your Project
+              </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Schedule a free consultation with our experts to discuss your project and explore how we can help you achieve your business

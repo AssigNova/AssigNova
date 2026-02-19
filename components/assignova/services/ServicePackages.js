@@ -117,7 +117,7 @@ export default function ServicePackages() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Service{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Packages</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Packages</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Flexible packages designed to meet the unique needs of businesses at every stage of their growth journey.

@@ -88,7 +88,7 @@ export default function TechStack() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Technology{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Stack</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Stack</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Leveraging cutting-edge technologies to build scalable, secure, and high-performance solutions.
@@ -183,8 +183,8 @@ export default function TechStack() {
                       tech.trend === "up"
                         ? "border-green-500/30 bg-green-500/5"
                         : tech.trend === "steady"
-                        ? "border-blue-500/30 bg-blue-500/5"
-                        : "border-purple-500/30 bg-purple-500/5"
+                          ? "border-blue-500/30 bg-blue-500/5"
+                          : "border-purple-500/30 bg-purple-500/5"
                     }`}>
                     <div className="text-sm font-medium text-white mb-1">{tech.name}</div>
                     <div

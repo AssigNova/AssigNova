@@ -45,8 +45,7 @@ export default function AssignovaHero() {
           zIndex: "30",
           opacity: "0.5",
           pointerEvents: "none", // This allows clicks to pass through
-        }}
-      >
+        }}>
         <Antigravity
           count={200}
           magnetRadius={6}
@@ -97,19 +96,24 @@ export default function AssignovaHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center"
-            >
+              className="text-center">
               {/* Badge */}
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", delay: 0.2 }}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 px-4 py-2 rounded-full mb-8 backdrop-blur-sm"
-              >
-                <Sparkles className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-medium text-blue-300">
-                  Next-Gen Digital Solutions
-                </span>
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative inline-flex items-center space-x-2 px-5 py-2 mb-8 bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden group"
+                style={{
+                  clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
+                }}>
+                {/* Sweeping light effect */}
+                <motion.div
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 1 }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                />
+                <Cpu className="w-4 h-4 text-light-accent relative z-10" />
+                <span className="text-xs font-semibold text-light-accent uppercase tracking-widest relative z-10">Next-Gen Solutions</span>
               </motion.div>
 
               {/* Main Headline */}
@@ -129,7 +133,7 @@ export default function AssignovaHero() {
                   onLetterAnimationComplete={handleAnimationComplete}
                 />
 
-                <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="block bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
                   Digital Future
                 </span>
               </h1>
@@ -138,11 +142,9 @@ export default function AssignovaHero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto"
-              >
-                We deliver cutting-edge software solutions that drive
-                innovation, accelerate growth, and transform businesses in the
-                digital age.
+                className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
+                We deliver cutting-edge software solutions that drive innovation, accelerate growth, and transform businesses in the digital
+                age.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -150,13 +152,11 @@ export default function AssignovaHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-              >
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative button-assignova text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden"
-                >
+                  className="group relative bg-linear-to-r from-dark-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden">
                   <span className="relative z-10 flex items-center space-x-2">
                     <span>Start Your Project</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -167,8 +167,7 @@ export default function AssignovaHero() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group bg-gray-900 border border-gray-800 hover:border-gray-700 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all"
-                >
+                  className="group bg-gray-900 border border-gray-800 hover:border-gray-700 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all">
                   <span className="flex items-center space-x-2">
                     <span>View Our Work</span>
                     <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
@@ -181,8 +180,7 @@ export default function AssignovaHero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-20"
-              >
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-20">
                 {[
                   { value: "30+", label: "Enterprise Clients" },
                   { value: "98.9%", label: "Uptime SLA" },
@@ -204,8 +202,7 @@ export default function AssignovaHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
 
@@ -216,19 +213,14 @@ export default function AssignovaHero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2 + index * 0.1 }}
                     whileHover={{ y: -10 }}
-                    className="group relative"
-                  >
+                    className="group relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
                     <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 group-hover:border-gray-700 transition-colors">
                       <div className="inline-flex p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-4">
                         <Icon className="w-6 h-6 text-blue-400" />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm">
-                        {feature.description}
-                      </p>
+                      <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
+                      <p className="text-gray-400 text-sm">{feature.description}</p>
                     </div>
                   </motion.div>
                 );

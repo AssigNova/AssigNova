@@ -15,6 +15,8 @@
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-dark-accent: var(--dark-accent);
+  --color-light-accent: var(--light-accent);
 
   /* If you need to extend other theme values (like fonts or breakpoints),
     you can do it here as well.
@@ -70,7 +72,7 @@
   }
 
   .dark .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent;
   }
 
   .grid-pattern {
@@ -167,6 +169,8 @@
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
+  --dark-accent: #1a4ca1;
+  --light-accent: #9cb1d7;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -203,6 +207,8 @@
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
+  --dark-accent: #1a4ca1;
+  --light-accent: #9cb1d7;
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);

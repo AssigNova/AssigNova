@@ -102,7 +102,7 @@ export default function TechnologyPartners() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Technology{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Partners</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Partners</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             We partner with leading technology providers to deliver cutting-edge solutions and stay at the forefront of innovation.
@@ -133,8 +133,8 @@ export default function TechnologyPartners() {
                         tech.level === "Expert"
                           ? "text-green-400 bg-green-400/10"
                           : tech.level === "Advanced"
-                          ? "text-blue-400 bg-blue-400/10"
-                          : "text-yellow-400 bg-yellow-400/10";
+                            ? "text-blue-400 bg-blue-400/10"
+                            : "text-yellow-400 bg-yellow-400/10";
 
                       return (
                         <motion.div
