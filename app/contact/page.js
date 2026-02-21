@@ -363,7 +363,7 @@ export default function AssignovaContact() {
                           onClick={() => handleServiceSelect(service)}
                           className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                             selectedService === service
-                              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                              ? "bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white"
                               : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                           }`}>
                           {service}
@@ -415,7 +415,7 @@ export default function AssignovaContact() {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                    className="w-full group bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white font-bold py-4 px-6 rounded-xl text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
                     {isSubmitting ? (
                       <div className="flex items-center justify-center space-x-3">
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

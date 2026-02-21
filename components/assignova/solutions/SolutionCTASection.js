@@ -148,7 +148,7 @@ export default function SolutionCTASection() {
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
+                        className="w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
                         <Calendar className="w-5 h-5" />
                         <span>Schedule Free Consultation</span>
                         <ArrowRight className="w-5 h-5" />
@@ -237,7 +237,7 @@ export default function SolutionCTASection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
+                  className="px-8 py-4 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
                   <MessageSquare className="w-5 h-5" />
                   <span>Contact Sales</span>
                   <ArrowRight className="w-5 h-5" />

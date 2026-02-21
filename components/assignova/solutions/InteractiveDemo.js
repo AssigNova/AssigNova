@@ -169,7 +169,7 @@ export default function InteractiveDemo() {
                     whileTap={{ scale: 0.95 }}
                     onClick={isPlaying ? () => setIsPlaying(false) : startDemo}
                     className={`flex-1 py-3 rounded-xl font-bold flex items-center justify-center space-x-2 ${
-                      isPlaying ? "bg-yellow-500 text-white" : "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                      isPlaying ? "bg-yellow-500 text-white" : "bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white"
                     }`}>
                     {isPlaying ? (
                       <>

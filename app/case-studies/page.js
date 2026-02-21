@@ -606,7 +606,7 @@ export default function CaseStudiesPage() {
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all">
+                          className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all">
                           <span>View Full Case Study</span>
                           <ExternalLink className="w-5 h-5" />
                         </motion.button>
@@ -786,7 +786,7 @@ export default function CaseStudiesPage() {
             transition={{ delay: 0.6 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg shadow-blue-500/30">
+            className="p-4 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-full shadow-lg shadow-blue-500/30">
             <ArrowRight className="w-6 h-6" />
           </motion.button>
 
@@ -1014,7 +1014,7 @@ export default function CaseStudiesPage() {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => setSelectedCaseStudy(study)}
-                          className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all">
+                          className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all">
                           <span>View Full Case Study</span>
                           <ArrowRight className="w-5 h-5" />
                         </motion.button>
@@ -1124,7 +1124,7 @@ export default function CaseStudiesPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
+                  className="px-8 py-4 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
                   <span>Schedule a Consultation</span>
                   <ArrowRight className="w-5 h-5" />
                 </motion.button>
@@ -1234,7 +1234,7 @@ function CaseStudyCard({ study, index, viewMode, onSelect }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onSelect}
-                className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-2">
+                className="w-full py-3 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-2">
                 <span>View Case Study</span>
                 <ArrowUpRight className="w-5 h-5" />
               </motion.button>
@@ -1509,7 +1509,7 @@ function CaseStudyModal({ study, onClose }) {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
+                className="w-full py-4 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
                 <span>Get Similar Solution</span>
                 <ArrowRight className="w-5 h-5" />
               </motion.button>

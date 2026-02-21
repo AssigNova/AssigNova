@@ -211,7 +211,7 @@ export default function ContactCTA() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       type="submit"
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center space-x-3">
+                      className="bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center space-x-3">
                       <Calendar className="w-5 h-5" />
                       <span>Schedule Consultation</span>
                     </motion.button>

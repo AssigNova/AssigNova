@@ -87,7 +87,7 @@ export default function Portfolio() {
                 onClick={() => setActiveFilter(filter)}
                 className={`px-5 py-2 rounded-full transition-all ${
                   activeFilter === filter
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                    ? "bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white"
                     : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                 }`}
               >

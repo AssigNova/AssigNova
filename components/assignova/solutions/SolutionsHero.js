@@ -268,7 +268,7 @@ export default function SolutionsHero() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden">
+                    className="group relative bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden">
                     <span className="relative z-10 flex items-center space-x-2">
                       <span>Explore Solutions</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />

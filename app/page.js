@@ -7,7 +7,6 @@ import ServicesShowcase from "@/components/assignova/ServicesShowcase";
 import TechStack from "@/components/assignova/TechStack";
 import CaseStudiesPreview from "@/components/assignova/CaseStudiesPreview";
 import ContactCTA from "@/components/assignova/ContactCTA";
-import GoogleReviewsWidget from "google-reviews-widget";
 
 export default function AssignovaHome() {
   const containerRef = useRef(null);

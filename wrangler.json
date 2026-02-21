@@ -1,42 +1,41 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "assignova-app",
-	"main": ".open-next/worker.js",
-	"compatibility_date": "2024-09-23",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"assets": {
-		"directory": ".open-next/assets",
-		"binding": "ASSETS"
-	},
-	"kv_namespaces": [
-		{
-			"binding": "NEXT_INC_CACHE_KV",
-			"id": "b9fa224ed24346c5acb81c258514cd98"
-		}
-	],
-	"observability": {
-		"enabled": true
-	},
-	"r2_buckets": [
-		{
-			"bucket_name": "assignova-cache",
-			"binding": "NEXT_INC_CACHE_R2_BUCKET"
-		}
-	],
-	"routes": [
-		{
-			"pattern": "assignova.com",
-			"zone_name": "assignova.com",
-			"custom_domain": true
-		}
-	],
-	"vars": {
-		"RECEIVER_EMAIL": "ja.akhtar99@gmail.com",
-		"SMTP_HOST": "smtp.hostinger.com",
-		"SMTP_PASS": "gemMyjames!1",
-		"SMTP_PORT": "465",
-		"SMTP_USER": "info@assignova.com"
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "assignova-app",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "b9fa224ed24346c5acb81c258514cd98"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "r2_buckets": [
+    {
+      "bucket_name": "assignova-cache",
+      "binding": "NEXT_INC_CACHE_R2_BUCKET"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "assignova.com",
+      "zone_name": "assignova.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "RECEIVER_EMAIL": "assignova.team@gmail.com",
+    "SMTP_HOST": "smtp.hostinger.com",
+    "SMTP_PASS": "gemMyjames!1",
+    "SMTP_PORT": "465",
+    "SMTP_USER": "info@assignova.com",
+    "RESEND_API_KEY": "re_RMAp6JtN_A3fhfET97cA1pmA4pmSUMtmS"
+  }
 }

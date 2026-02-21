@@ -93,7 +93,7 @@ export default function AssignovaNavigation() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold overflow-hidden"
+                className="group relative bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-6 py-2 rounded-lg font-semibold overflow-hidden"
                 onClick={() => router.push("/contact")}>
                 <span className="relative z-10">Start Project</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -140,7 +140,7 @@ export default function AssignovaNavigation() {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all"
+                  className="mt-8 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all"
                   onClick={() => handleMobileLinkClick("/contact")}>
                   Start Your Project
                 </motion.button>
