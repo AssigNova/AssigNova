@@ -82,7 +82,7 @@ export default function ServiceConsultation() {
             className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Let's Discuss{" "}
-              <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
                 Your Project
               </span>
             </h2>

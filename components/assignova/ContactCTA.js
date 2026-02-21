@@ -76,7 +76,7 @@ export default function ContactCTA() {
             className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Let's Build{" "}
-              <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Together</span>
+              <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Together</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Ready to transform your business with cutting-edge technology? Get in touch with our experts today.

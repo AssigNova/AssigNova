@@ -240,7 +240,7 @@ export default function AssignovaContact() {
             <span className="text-sm font-medium text-blue-300">Get in Touch</span>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
             Let's Build Something Amazing
           </h1>
 

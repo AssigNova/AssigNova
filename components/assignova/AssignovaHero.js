@@ -133,7 +133,7 @@ export default function AssignovaHero() {
                   onLetterAnimationComplete={handleAnimationComplete}
                 />
 
-                <span className="block bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+                <span className="block bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
                   Digital Future
                 </span>
               </h1>

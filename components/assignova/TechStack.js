@@ -88,7 +88,7 @@ export default function TechStack() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Technology{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Stack</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Stack</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Leveraging cutting-edge technologies to build scalable, secure, and high-performance solutions.

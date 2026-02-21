@@ -107,7 +107,7 @@ export default function InteractiveDemo() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             See Our Architecture{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">In Action</span>
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">In Action</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Experience how our architecture handles real-world scenarios with this interactive demonstration

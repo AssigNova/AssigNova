@@ -73,7 +73,8 @@ export default function ServiceProcess() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Process</span>
+            Our{" "}
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Process</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             A structured, transparent approach that ensures quality delivery and successful outcomes at every stage.

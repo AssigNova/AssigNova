@@ -65,7 +65,7 @@ export default function ServicesHero() {
             {/* Main Headline */}
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
               <span className="">Our </span>
-              <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">Services</span>
+              <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Services</span>
             </h1>
 
             <motion.p

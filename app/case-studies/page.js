@@ -439,7 +439,7 @@ export default function CaseStudiesPage() {
               </motion.div>
 
               <h1 className="text-6xl md:text-8xl font-bold mb-8">
-                <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
                   Case Studies
                 </span>
               </h1>

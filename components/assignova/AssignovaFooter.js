@@ -48,7 +48,7 @@ export default function AssignovaFooter() {
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
                   Assignova
                 </h2>
                 <p className="text-gray-400 text-sm">Next-Gen Digital Solutions</p>

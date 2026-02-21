@@ -76,7 +76,7 @@ export default function SolutionFeatures() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Built for{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-primary bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
               Scale & Security
             </span>
           </h2>
