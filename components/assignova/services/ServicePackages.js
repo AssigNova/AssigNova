@@ -2,71 +2,66 @@
 
 import { motion } from "framer-motion";
 import { Building2, Users, Rocket, Check, X, Star, Shield, Zap, Globe, Headphones, BarChart, Target } from "lucide-react";
-
+import Link from "next/link";
 const packages = [
   {
-    tier: "enterprise",
-    title: "Enterprise Suite",
-    description: "Complete digital transformation for large organizations",
-    icon: Building2,
-    color: "from-blue-600 to-purple-600",
-    price: "Custom",
+    tier: "web-dev",
+    title: "Web & App Development",
+    description: "End-to-end delivery of high-performance websites and mobile applications.",
+    icon: Rocket,
+    price: "",
+    popular: false,
     features: [
-      "Dedicated Engineering Team",
-      "24/7 Enterprise Support",
-      "Enterprise Security Suite",
-      "Scalable Microservices Architecture",
-      "Disaster Recovery Planning",
-      "Performance Optimization",
-      "Technical Leadership",
-      "Quarterly Strategy Reviews",
+      "Custom UI/UX Design",
+      "Responsive Web Applications",
+      "Native & Cross-Platform Mobile Apps",
+      "SEO-Optimized Architecture",
+      "Secure Payment Integrations",
+      "Comprehensive Testing & QA",
+      "Scalable Cloud Hosting Setup",
     ],
-    notIncluded: ["No limitations on features", "No extra charges for priority support", "No hidden costs"],
-    bestFor: "Fortune 500 companies, enterprises with 1000+ employees",
-    cta: "Schedule Enterprise Demo",
+    notIncluded: ["Ongoing IT Helpdesk Support"],
+    bestFor: "Brands needing a powerful digital presence or custom e-commerce stores",
+    cta: "Start Your Project",
   },
   {
-    tier: "business",
-    title: "Business Pro",
-    description: "Comprehensive solutions for growing businesses",
-    icon: Users,
-    color: "from-green-600 to-cyan-600",
-    price: "From $25,000",
+    tier: "erp-cms",
+    title: "CMS / POS / ERP Systems",
+    description: "Centralized platforms to manage operations and scale your business.",
+    icon: Target,
+    price: "",
     popular: true,
     features: [
-      "Custom Software Development",
-      "API Development & Integration",
-      "Cloud Infrastructure Setup",
-      "Regular Maintenance & Updates",
-      "Technical Documentation",
-      "Team Training",
-      "Monthly Progress Reports",
-      "Priority Support",
+      "Headless CMS Architecture",
+      "Custom ERP Integrations",
+      "Cloud POS Setup",
+      "Data Migration & Synchronization",
+      "Inventory Management Systems",
+      "Detailed Analytics Dashboards",
+      "Staff Training & Documentation",
     ],
-    notIncluded: ["Enterprise security suite", "Dedicated 24/7 support team", "Custom hardware solutions"],
-    bestFor: "Medium-sized businesses, startups with funding",
-    cta: "Start Business Project",
+    notIncluded: ["Consumer marketing campaigns"],
+    bestFor: "Growing enterprises needing to unify their fragmented data silos",
+    cta: "Request a Quote",
   },
   {
-    tier: "startup",
-    title: "Startup Launch",
-    description: "Essential solutions for startups and MVPs",
-    icon: Rocket,
-    color: "from-orange-600 to-pink-600",
-    price: "From $10,000",
+    tier: "automation",
+    title: "Process Automation",
+    description: "Automate digital workflows between any of your existing websites, CRMs, or applications.",
+    icon: Zap,
+    price: "",
     features: [
-      "MVP Development",
-      "Rapid Prototyping",
-      "Basic Cloud Setup",
-      "Core Features Development",
-      "Responsive Design",
-      "Basic SEO Optimization",
-      "Deployment Assistance",
-      "3 Months Support",
+      "Custom Workflow Automation",
+      "Any App & Website Integration",
+      "Unlimited Automation Tasks",
+      "API Bridging & Scripting",
+      "Proactive Bottleneck Removal",
+      "Dedicated Automation Support",
+      "Monthly Strategy Syncs",
     ],
-    notIncluded: ["Advanced security features", "Custom infrastructure design", "Enterprise support SLA"],
-    bestFor: "Startups, small businesses, entrepreneurs",
-    cta: "Launch Your MVP",
+    notIncluded: ["Core product development from scratch"],
+    bestFor: "Businesses looking to eliminate manual data entry and scale efficiently",
+    cta: "Start Automating",
   },
 ];
 
@@ -113,11 +108,12 @@ export default function ServicePackages() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Service{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Packages</span>
+            <span className="text-light-accent">Packages</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Flexible packages designed to meet the unique needs of businesses at every stage of their growth journey.
@@ -135,6 +131,7 @@ export default function ServicePackages() {
                   key={pkg.tier}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ delay: index * 0.2 }}
                   whileHover={{ y: -10 }}
                   className={`relative ${pkg.popular ? "lg:scale-105 z-10" : ""}`}>
@@ -150,21 +147,22 @@ export default function ServicePackages() {
 
                   {/* Package Card */}
                   <div
-                    className={`bg-gray-900/50 backdrop-blur-sm border ${
-                      pkg.popular ? "border-blue-500" : "border-gray-800"
-                    } rounded-3xl overflow-hidden h-full`}>
+                    className={`bg-gray-900/40 backdrop-blur-sm border ${pkg.popular ? "border-dark-accent shadow-[0_0_30px_rgba(var(--dark-accent-rgb),0.15)]" : "border-gray-800"
+                      } rounded-3xl overflow-hidden h-full flex flex-col`}>
                     {/* Header */}
-                    <div className={`bg-gradient-to-r ${pkg.color} p-8 text-white`}>
-                      <div className="flex items-center justify-between mb-6">
-                        <Icon className="w-10 h-10" />
+                    <div className={`p-8 border-b border-gray-800 relative overflow-hidden ${pkg.popular ? "bg-dark-accent/5" : ""}`}>
+                      <div className="flex items-center justify-between mb-6 relative z-10">
+                        <div className={`p-3 rounded-xl ${pkg.popular ? "bg-dark-accent text-white" : "bg-gray-800 text-gray-400"}`}>
+                          <Icon className="w-8 h-8" />
+                        </div>
                         {pkg.popular && (
-                          <div className="text-xs font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">RECOMMENDED</div>
+                          <div className="text-xs font-bold text-dark-accent bg-dark-accent/10 px-3 py-1 rounded-full border border-dark-accent/20">RECOMMENDED</div>
                         )}
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">{pkg.title}</h3>
-                      <p className="text-white/80 mb-6">{pkg.description}</p>
-                      <div className="text-4xl font-bold mb-2">{pkg.price}</div>
-                      <div className="text-white/60 text-sm">{pkg.tier === "enterprise" ? "Enterprise pricing" : "Starting price"}</div>
+                      <h3 className="text-2xl font-bold mb-2 text-white relative z-10">{pkg.title}</h3>
+                      <p className="text-gray-400 mb-6 relative z-10 h-10">{pkg.description}</p>
+                      <div className="text-3xl font-bold mb-2 text-white relative z-10 tracking-tight">{pkg.price}</div>
+
                     </div>
 
                     {/* Content */}
@@ -188,32 +186,22 @@ export default function ServicePackages() {
                         </ul>
                       </div>
 
-                      {/* Not Included */}
-                      {pkg.notIncluded && (
-                        <div className="mb-8">
-                          <h4 className="font-bold text-gray-300 mb-4">Not Included</h4>
-                          <ul className="space-y-3">
-                            {pkg.notIncluded.map((item, i) => (
-                              <li key={i} className="flex items-start">
-                                <X className="w-5 h-5 text-gray-500 mr-3 mt-0.5 flex-shrink-0" />
-                                <span className="text-gray-500">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+
 
                       {/* CTA Button */}
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
-                          pkg.popular
-                            ? "bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white hover:shadow-xl hover:shadow-blue-500/30"
-                            : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                        }`}>
-                        {pkg.cta}
-                      </motion.button>
+                      <div className="mt-auto">
+                        <Link href="/contact" passHref>
+                          <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${pkg.popular
+                              ? "btn-primary shadow-lg shadow-dark-accent/20"
+                              : "btn-secondary"
+                              }`}>
+                            {pkg.cta}
+                          </motion.button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -225,6 +213,7 @@ export default function ServicePackages() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl p-8 md:p-12 border border-gray-800">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -243,6 +232,7 @@ export default function ServicePackages() {
                       key={feature.title}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
                       transition={{ delay: index * 0.1 }}
                       className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-gray-700 transition-colors">
                       <div className="inline-flex p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-4">
@@ -262,12 +252,14 @@ export default function ServicePackages() {
                   <p className="text-gray-400 mb-8">
                     Tell us about your specific requirements and we'll create a tailored solution that fits your exact needs and budget.
                   </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all">
-                    Request Custom Quote
-                  </motion.button>
+                  <Link href={"/contact"}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="btn-primary px-8 py-4 rounded-xl text-lg">
+                      Request Custom Quote
+                    </motion.button>
+                  </Link>
                 </div>
               </div>
             </div>

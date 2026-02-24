@@ -18,6 +18,7 @@
   --color-dark-accent: var(--dark-accent);
   --color-light-accent: var(--light-accent);
   --color-mid-accent: var(--mid-accent);
+  --color-contrast-accent: var(--contrast-accent);
 
   /* If you need to extend other theme values (like fonts or breakpoints),
     you can do it here as well.
@@ -108,7 +109,20 @@
   .dark .gradient-border {
     background-image: linear-gradient(#111827, #111827), linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
   }
+
+  .btn-primary {
+    @apply bg-dark-accent text-white hover:bg-mid-accent transition-all duration-300 font-bold border border-transparent;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-dark-accent text-dark-accent hover:bg-dark-accent hover:text-white transition-all duration-300 font-bold;
+  }
+
+  .dark .btn-secondary {
+    @apply bg-gray-900 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-all duration-300 font-bold;
+  }
 }
+
 /* ---break--- 
 */
 @theme inline {
@@ -151,6 +165,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+
 /* ---break--- 
 */
 :root {
@@ -172,7 +187,8 @@
   --accent-foreground: oklch(0.205 0 0);
   --dark-accent: #1a4ca1;
   --light-accent: #9cb1d7;
-  --mid-accent: #9cb1d7;
+  --mid-accent: #5c81c4;
+  --contrast-accent: #7ca8e0;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -191,12 +207,13 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
+
 /* ---break--- 
 */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --heading: #02205c;
+  --heading: #e2e8f0;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -211,7 +228,8 @@
   --accent-foreground: oklch(0.985 0 0);
   --dark-accent: #1a4ca1;
   --light-accent: #9cb1d7;
-  --mid-accent: #9cb1d7;
+  --mid-accent: #5c81c4;
+  --contrast-accent: #7ca8e0;
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
@@ -230,12 +248,14 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+
 /* ---break--- 
 */
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -248,9 +268,11 @@
   color: transparent; */
   color: #02205c;
 }
+
 .button-assignova {
   background: linear-gradient(to right, #02205c, #9cb1d7);
 }
+
 .second-text {
   color: #142037;
 }
@@ -260,11 +282,13 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .hero-bg {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.4)), url("/bghero-mobile1.jpg");
   background-size: cover;
@@ -276,6 +300,7 @@
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("/bghero.png");
   }
 }
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
@@ -283,6 +308,7 @@
 .animate-on-scroll {
   opacity: 0;
 }
+
 .input {
   @apply rounded-lg bg-black border border-white/10 p-4 text-white;
 }

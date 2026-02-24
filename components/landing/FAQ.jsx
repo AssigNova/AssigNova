@@ -8,48 +8,46 @@ export default function FAQ() {
 
   const faqCategories = [
     { id: "all", name: "All Questions" },
-    { id: "general", name: "General" },
-    { id: "wordpress", name: "WordPress" },
-    { id: "ecommerce", name: "E-commerce" },
+    { id: "dev", name: "Development" },
+    { id: "automation", name: "Automation & ERP" },
+    { id: "scale", name: "Scaling & Support" },
   ];
 
   const faqs = [
     {
       id: 1,
-      category: "general",
-      question: "What website design and development services do you offer?",
+      category: "dev",
+      question: "What web and application development services do you offer?",
       answer:
-        "We offer comprehensive web design and development services including: corporate website design, ecommerce website development, custom web applications, WordPress website development services, website redesign, and ongoing maintenance. Whether you need a simple business website or a complex web platform, our best website developers deliver tailored solutions that meet your specific requirements.",
+        "We offer comprehensive digital engineering services including: custom web applications, mobile app development (iOS/Android), enterprise SaaS platforms, and high-performance business websites. Our architecture strictly relies on modern stacks tailored to high scalability.",
     },
     {
       id: 3,
-      category: "wordpress",
-      question:
-        "How are your WordPress web design services different from others?",
+      category: "automation",
+      question: "How do your Process Automation services work?",
       answer:
-        "Our WordPress web design services stand out because we don't just install themes—we create custom solutions. Our best website developers build bespoke WordPress sites with: 1) Custom post types and taxonomies, 2) Advanced custom fields, 3) Optimized database queries, 4) SEO-optimized code structure, 5) Mobile-first responsive design, and 6) Security-first approach.",
+        "We map out your business bottlenecks and deploy intelligent workflows to eliminate manual data entry. This involves integrating your existing software stack (CRMs, databases, communication tools) via APIs or deploying custom RPA bots to accelerate your daily business operations.",
     },
     {
       id: 4,
-      category: "ecommerce",
-      question: "What ecommerce website development services do you offer?",
+      category: "automation",
+      question: "Can you build or integrate custom ERP & CMS systems?",
       answer:
-        "Our ecommerce website developer team specializes in building robust online stores using platforms like WooCommerce, Shopify, OpenCart, and custom solutions. Our ecommerce website development services include secure payment gateway integration, inventory management systems, invoice generation, shipping integration, and mobile-optimized shopping experiences.",
+        "Yes, our engineering team specializes in deploying centralized platforms representing your entire business ecosystem. Whether you need a Headless CMS for rapid content scaling or a custom ERP integration to bridge fragmented data silos, we architect the core engine for your business.",
     },
     {
       id: 8,
-      category: "general",
-      question:
-        "Do you offer SEO-friendly website design and development services?",
+      category: "scale",
+      question: "Do you offer post-launch support and infrastructure scaling?",
       answer:
-        "Yes, every project we deliver includes SEO-friendly architecture as standard. Our web design and development services incorporate clean semantic HTML, optimized page speed, mobile responsiveness, schema markup, meta tag optimization, XML sitemaps, and SEO-friendly URLs.",
+        "Yes, every project we deliver includes optional IT Support Services and global infrastructure scaling. We handle server monitoring, database optimizations, emergency patching, and systematic feature rollouts to ensure your application remains stable as user traffic grows.",
     },
     {
       id: 9,
-      category: "wordpress",
-      question: "Do you provide custom WordPress plugin development?",
+      category: "dev",
+      question: "What is your typical project delivery timeline?",
       answer:
-        "Yes, our WordPress web development services include custom plugin development. When off-the-shelf plugins don't meet your requirements, our team creates custom plugins tailored to your specific functionality needs.",
+        "Project timelines vary heavily based on scope. A standard high-performance marketing website might take 4-6 weeks, while a deeply integrated ERP system or custom SaaS application can range from 3-6 months. We operate on strict agile sprints to deliver functional milestones consistently.",
     },
   ];
 
@@ -69,7 +67,7 @@ export default function FAQ() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Frequently Asked{" "}
-            <span className="gradient bg-clip-text text-transparent">
+            <span className="text-light-accent">
               Questions
             </span>
           </h2>
@@ -85,11 +83,10 @@ export default function FAQ() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-5 py-2 rounded-full transition-all border ${
-                activeCategory === category.id
-                  ? "button-assignova shadow"
-                  : "bg-white text-gray-600 hover:bg-gray-100 border-gray-300"
-              }`}
+              className={`px-5 py-2 rounded-full transition-all border ${activeCategory === category.id
+                ? "button-assignova shadow"
+                : "bg-white text-gray-600 hover:bg-gray-100 border-gray-300"
+                }`}
             >
               {category.name}
             </button>
@@ -102,11 +99,10 @@ export default function FAQ() {
             {filteredFaqs.map((faq, index) => (
               <div
                 key={faq.id}
-                className={`rounded-xl border transition-all ${
-                  openIndex === index
-                    ? "border-blue-500 bg-blue-50/50"
-                    : "border-gray-200 bg-white hover:border-gray-300"
-                }`}
+                className={`rounded-xl border transition-all ${openIndex === index
+                  ? "border-blue-500 bg-blue-50/50"
+                  : "border-gray-200 bg-white hover:border-gray-300"
+                  }`}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
@@ -115,9 +111,8 @@ export default function FAQ() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-start md:items-center gap-4">
                       <div
-                        className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-l from-[#9ab0d9] to-[#02205c] flex items-center justify-center text-white font-bold ${
-                          openIndex === index ? "opacity-100" : "opacity-80"
-                        }`}
+                        className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-l from-[#9ab0d9] to-[#02205c] flex items-center justify-center text-white font-bold ${openIndex === index ? "opacity-100" : "opacity-80"
+                          }`}
                       >
                         {index + 1}
                       </div>
@@ -126,9 +121,8 @@ export default function FAQ() {
                       </h3>
                     </div>
                     <div
-                      className={`transform transition-transform ${
-                        openIndex === index ? "rotate-45" : ""
-                      }`}
+                      className={`transform transition-transform ${openIndex === index ? "rotate-45" : ""
+                        }`}
                     >
                       <svg
                         width="24"
@@ -155,16 +149,21 @@ export default function FAQ() {
 
                       <div className="flex flex-wrap gap-2 mt-4">
                         <span className="px-3 py-1 bg-blue-100 rounded-full text-xs border border-blue-200 text-blue-700">
-                          Web Development
+                          Assignova Core
                         </span>
-                        {faq.category === "wordpress" && (
+                        {faq.category === "dev" && (
                           <span className="px-3 py-1 bg-purple-100 rounded-full text-xs border border-purple-200 text-purple-700">
-                            WordPress
+                            Development
                           </span>
                         )}
-                        {faq.category === "ecommerce" && (
+                        {faq.category === "automation" && (
                           <span className="px-3 py-1 bg-green-100 rounded-full text-xs border border-green-200 text-green-700">
-                            E-commerce
+                            Automation & ERP
+                          </span>
+                        )}
+                        {faq.category === "scale" && (
+                          <span className="px-3 py-1 bg-orange-100 rounded-full text-xs border border-orange-200 text-orange-700">
+                            Support & Scaling
                           </span>
                         )}
                       </div>
@@ -190,13 +189,13 @@ export default function FAQ() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#contact"
-                className="inline-flex items-center px-6 py-3 button-assignova text-white rounded-lg font-semibold hover:opacity-90 transition"
+                className="inline-flex items-center px-6 py-3 btn-primary rounded-lg transition"
               >
                 📞 Contact Us
               </a>
               <a
                 href="#home"
-                className="inline-flex items-center px-6 py-3 button-assignova  bg-white rounded-lg font-semibold border border-gray-300 hover:bg-gray-100 transition"
+                className="inline-flex items-center px-6 py-3 btn-secondary rounded-lg transition"
               >
                 💰 Get Free Quote
               </a>

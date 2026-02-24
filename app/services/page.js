@@ -2,12 +2,14 @@
 
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import dynamic from "next/dynamic";
 import ServicesHero from "@/components/assignova/services/ServicesHero";
-import ServiceCategories from "@/components/assignova/services/ServiceCategories";
-import ServiceProcess from "@/components/assignova/services/ServiceProcess";
-import ServicePackages from "@/components/assignova/services/ServicePackages";
-import TechnologyPartners from "@/components/assignova/services/TechnologyPartners";
-import ServiceConsultation from "@/components/assignova/services/ServiceConsultation";
+
+const ServiceCategories = dynamic(() => import("@/components/assignova/services/ServiceCategories"), { ssr: false });
+const ServiceProcess = dynamic(() => import("@/components/assignova/services/ServiceProcess"), { ssr: false });
+const ServicePackages = dynamic(() => import("@/components/assignova/services/ServicePackages"), { ssr: false });
+const TechnologyPartners = dynamic(() => import("@/components/assignova/services/TechnologyPartners"), { ssr: false });
+const ServiceConsultation = dynamic(() => import("@/components/assignova/services/ServiceConsultation"), { ssr: false });
 
 export default function ServicesPage() {
   const containerRef = useRef(null);
@@ -23,36 +25,23 @@ export default function ServicesPage() {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-gray-950 overflow-hidden">
-      {/* Animated Background */}
+      {/* Subtle Structural Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {/* Glowing Orbs */}
+        {/* Subtle Brand Core Glow */}
         <motion.div
           animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
+            opacity: [0.03, 0.05, 0.03],
           }}
           transition={{
-            duration: 20,
+            duration: 10,
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-blue-500/3 via-purple-500/3 to-pink-500/3 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-dark-accent rounded-full blur-[150px]"
         />
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 grid-pattern opacity-5" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
       </div>
 
       <motion.div style={{ opacity, scale }} className="relative">

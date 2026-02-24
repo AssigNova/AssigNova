@@ -4,38 +4,38 @@ import { motion } from "framer-motion";
 import {
   Building2,
   Heart,
-  CreditCard,
   ShoppingCart,
-  GraduationCap,
+  Zap,
   Truck,
   Factory,
   Globe,
   CheckCircle,
+  Database,
   BarChart,
   Shield,
-  Zap,
 } from "lucide-react";
+import Link from "next/link";
 
 const industries = {
-  fintech: {
-    title: "FinTech Solutions",
-    icon: CreditCard,
-    color: "from-blue-500 to-cyan-500",
-    description: "Secure, scalable financial technology platforms",
+  automation: {
+    title: "Process Automation",
+    icon: Zap,
+    color: "from-dark-accent to-mid-accent",
+    description: "Intelligent workflows that eliminate manual tasks",
     challenges: [
-      "Regulatory compliance",
-      "Real-time transaction processing",
-      "Fraud detection and prevention",
-      "Data security and encryption",
+      "Repetitive manual data entry",
+      "High human error rates",
+      "Inefficient process bottlenecks",
+      "Disjointed legacy systems",
     ],
-    solutions: ["Digital banking platforms", "Payment processing systems", "Investment management tools", "Blockchain integration"],
-    technologies: ["React", ".NET Core", "PostgreSQL", "AWS", "Redis"],
-    stats: { clients: 25, projects: 45, savings: "40%" },
+    solutions: ["Custom Workflow Automation", "RPA Integration", "API Bridging", "Document Parsing"],
+    technologies: ["Node.js", "Python", "Make", "AWS Lambda", "Azure Functions"],
+    stats: { processes: "500+", hours_saved: "10k+", roi: "300%" },
   },
   healthcare: {
     title: "Healthcare Technology",
     icon: Heart,
-    color: "from-purple-500 to-pink-500",
+    color: "from-mid-accent to-light-accent",
     description: "HIPAA-compliant healthcare management systems",
     challenges: ["Patient data security", "Interoperability standards", "Real-time monitoring", "Compliance management"],
     solutions: ["Electronic Health Records (EHR)", "Telemedicine platforms", "Medical IoT integration", "AI diagnostics tools"],
@@ -45,7 +45,7 @@ const industries = {
   ecommerce: {
     title: "E-Commerce Platforms",
     icon: ShoppingCart,
-    color: "from-green-500 to-emerald-500",
+    color: "from-light-accent to-dark-accent",
     description: "High-performance online retail solutions",
     challenges: [
       "Scalability during peak traffic",
@@ -57,20 +57,20 @@ const industries = {
     technologies: ["Next.js", "Node.js", "AWS", "Redis", "Elasticsearch"],
     stats: { clients: 42, projects: 68, growth: "300%" },
   },
-  edtech: {
-    title: "Education Technology",
-    icon: GraduationCap,
-    color: "from-yellow-500 to-orange-500",
-    description: "Interactive learning and management platforms",
+  erp: {
+    title: "CMS / POS / ERP",
+    icon: Database,
+    color: "from-contrast-accent to-mid-accent",
+    description: "Centralized platforms to manage your entire business",
     challenges: [
-      "Engaging remote learning experiences",
-      "Progress tracking and analytics",
-      "Content personalization",
-      "Collaboration tools",
+      "Fragmented data silos",
+      "Lack of real-time inventory",
+      "Poor cross-department visibility",
+      "Scaling operational complexities",
     ],
-    solutions: ["Learning Management Systems (LMS)", "Virtual classrooms", "Adaptive learning platforms", "Assessment and grading tools"],
-    technologies: ["React", "Python", "Firebase", "PostgreSQL", "WebRTC"],
-    stats: { clients: 28, projects: 41, engagement: "85%" },
+    solutions: ["Custom ERP Systems", "Cloud POS Integrations", "Headless CMS Architecture", "Supply Chain Dashboards"],
+    technologies: ["React", "PostgreSQL", "Next.js", "Redis", "Elasticsearch"],
+    stats: { systems: 45, uptime: "99.9%", visibility: "100%" },
   },
 };
 
@@ -79,25 +79,25 @@ const industryCards = [
     id: "manufacturing",
     title: "Manufacturing",
     icon: Factory,
-    color: "from-red-500 to-pink-500",
+    color: "from-mid-accent to-dark-accent",
   },
   {
     id: "logistics",
     title: "Logistics",
     icon: Truck,
-    color: "from-indigo-500 to-blue-500",
+    color: "from-dark-accent to-light-accent",
   },
   {
     id: "enterprise",
     title: "Enterprise",
     icon: Building2,
-    color: "from-cyan-500 to-green-500",
+    color: "from-light-accent to-mid-accent",
   },
   {
     id: "government",
     title: "Government",
     icon: Globe,
-    color: "from-orange-500 to-red-500",
+    color: "from-contrast-accent to-dark-accent",
   },
 ];
 
@@ -116,7 +116,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
               <path d="M40,0 L0,40" stroke="currentColor" strokeWidth="0.5" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#diagonal-grid)" className="text-blue-500" />
+          <rect width="100%" height="100%" fill="url(#diagonal-grid)" className="text-light-accent" />
         </svg>
       </div>
 
@@ -128,7 +128,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Industry{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Solutions</span>
+            <span className="text-light-accent">Solutions</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Tailored digital solutions for specific industry challenges, delivering measurable results and competitive advantage.
@@ -157,25 +157,22 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                         className={`relative group ${isActive ? "col-span-2" : ""}`}>
                         {/* Background Glow */}
                         <div
-                          className={`absolute inset-0 bg-gradient-to-r ${
-                            industry.color
-                          } rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300 ${
-                            isActive ? "opacity-20" : ""
-                          }`}
+                          className={`absolute inset-0 bg-gradient-to-r ${industry.color
+                            } rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300 ${isActive ? "opacity-20" : ""
+                            }`}
                         />
 
                         {/* Card */}
                         <div
-                          className={`relative bg-gray-900/50 backdrop-blur-sm border rounded-xl p-6 transition-all duration-300 ${
-                            isActive ? "border-gray-700 shadow-xl" : "border-gray-800 group-hover:border-gray-700"
-                          }`}>
-                          <div className="flex items-center space-x-4">
-                            <div className={`p-3 rounded-lg bg-gradient-to-r ${industry.color}`}>
-                              <Icon className="w-6 h-6 text-white" />
+                          className={`relative bg-gray-900/50 backdrop-blur-sm border rounded-xl p-4 md:p-6 transition-all duration-300 w-full overflow-hidden ${isActive ? "border-gray-700 shadow-xl" : "border-gray-800 group-hover:border-gray-700"
+                            }`}>
+                          <div className="flex items-center space-x-3 md:space-x-4 w-full">
+                            <div className={`p-2 md:p-3 shrink-0 rounded-lg bg-gradient-to-r ${industry.color}`}>
+                              <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                             </div>
-                            <div className="text-left">
-                              <h3 className="font-bold text-white">{industry.title}</h3>
-                              {isActive && <p className="text-gray-400 text-sm mt-1">{industry.description}</p>}
+                            <div className="text-left w-full overflow-hidden">
+                              <h3 className="font-bold text-white text-sm md:text-base leading-tight break-words">{industry.title}</h3>
+                              {isActive && <p className="text-gray-400 text-xs md:text-sm mt-1 mb-2 line-clamp-2">{industry.description}</p>}
                             </div>
                           </div>
 
@@ -183,14 +180,14 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                           {isActive && (
                             <motion.div
                               layoutId="active-industry"
-                              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-b-xl"
+                              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-dark-accent to-light-accent rounded-b-xl"
                               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                             />
                           )}
                         </div>
 
                         {/* Connection Line (on hover) */}
-                        <div className="absolute top-1/2 right-0 w-6 h-px bg-gradient-to-l from-blue-500/0 via-blue-500/50 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
+                        <div className="absolute top-1/2 right-0 w-6 h-px bg-gradient-to-l from-light-accent/0 via-light-accent/50 to-light-accent/0 opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
                       </motion.button>
                     );
                   })}
@@ -208,11 +205,11 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4 + index * 0.1 }}
                         whileHover={{ scale: 1.05 }}
-                        className="bg-gray-900/30 border border-gray-800 rounded-lg p-4 text-center hover:border-gray-700 transition-colors">
+                        className="bg-gray-900/30 border border-gray-800 rounded-lg p-3 sm:p-4 text-center hover:border-gray-700 transition-colors">
                         <div className={`inline-flex p-2 rounded-lg bg-gradient-to-r ${industry.color} mb-3`}>
                           <Icon className="w-5 h-5 text-white" />
                         </div>
-                        <div className="text-sm font-medium text-white">{industry.title}</div>
+                        <div className="text-xs sm:text-sm font-medium text-white break-words hyphens-auto">{industry.title}</div>
                       </motion.div>
                     );
                   })}
@@ -228,7 +225,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
 
                     <div className="relative bg-gray-900/70 backdrop-blur-sm p-8">
                       {/* Header */}
-                      <div className="flex items-start justify-between mb-8">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-6">
                         <div>
                           <div className="flex items-center space-x-3 mb-4">
                             <div className={`p-3 rounded-xl bg-gradient-to-r ${activeIndustry.color}`}>
@@ -240,7 +237,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                         </div>
 
                         {/* Stats */}
-                        <div className="text-right">
+                        <div className="text-left sm:text-right w-full sm:w-auto">
                           <div className="text-3xl font-bold gradient-text mb-2">{activeIndustry.stats.projects}</div>
                           <div className="text-sm text-gray-400">Projects Delivered</div>
                         </div>
@@ -251,7 +248,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                         {/* Challenges */}
                         <div>
                           <h4 className="text-lg font-bold text-white mb-4 flex items-center">
-                            <Shield className="w-5 h-5 text-blue-400 mr-2" />
+                            <Shield className="w-5 h-5 text-mid-accent mr-2" />
                             Key Challenges
                           </h4>
                           <ul className="space-y-3">
@@ -262,7 +259,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 className="flex items-center text-gray-300">
-                                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-3" />
+                                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-dark-accent to-light-accent mr-3" />
                                 {challenge}
                               </motion.li>
                             ))}
@@ -272,7 +269,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                         {/* Solutions */}
                         <div>
                           <h4 className="text-lg font-bold text-white mb-4 flex items-center">
-                            <Zap className="w-5 h-5 text-green-400 mr-2" />
+                            <Zap className="w-5 h-5 text-contrast-accent mr-2" />
                             Our Solutions
                           </h4>
                           <ul className="space-y-3">
@@ -283,7 +280,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 className="flex items-center text-gray-300">
-                                <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                                <CheckCircle className="w-5 h-5 text-contrast-accent mr-3 flex-shrink-0" />
                                 {solution}
                               </motion.li>
                             ))}
@@ -348,31 +345,33 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
 
           {/* CTA Section */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl blur-xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-accent/5 via-mid-accent/5 to-light-accent/5 rounded-3xl blur-xl" />
             <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-3xl p-8 md:p-12 overflow-hidden">
               {/* Animated Border */}
               <div className="absolute inset-0 border-2 border-transparent rounded-3xl">
-                <div className="absolute inset-0 border-2 border-blue-500/20 rounded-3xl animate-border-spin" />
+                <div className="absolute inset-0 border-2 border-mid-accent/20 rounded-3xl animate-border-spin" />
               </div>
 
               <div className="max-w-3xl mx-auto text-center relative z-10">
-                <BarChart className="w-16 h-16 text-blue-400 mx-auto mb-6" />
+                <BarChart className="w-16 h-16 text-mid-accent mx-auto mb-6" />
                 <h3 className="text-3xl font-bold text-white mb-6">Don't See Your Industry?</h3>
                 <p className="text-gray-400 mb-8 text-lg">
                   Every business is unique. Tell us about your specific challenges, and we'll craft a custom solution tailored to your
                   needs.
                 </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all">
-                  Request Custom Solution
-                </motion.button>
+                <Link href={"/contact"}>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn-primary px-8 py-4 rounded-xl text-lg">
+                    Request Custom Solution
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>
         </div>
-      </div>
+      </div >
 
       <style jsx global>{`
         @keyframes border-spin {
@@ -397,6 +396,6 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
           animation: border-spin 4s linear infinite;
         }
       `}</style>
-    </section>
+    </section >
   );
 }

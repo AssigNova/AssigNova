@@ -5,46 +5,46 @@ import { Scale, Lock, Globe, TrendingUp, Users, Brain, ShieldCheck, Zap, Cpu, Da
 
 const features = [
   {
-    icon: Scale,
-    title: "Scalable Architecture",
-    description: "Designed to grow with your business, handling millions of requests with ease.",
-    color: "from-blue-500 to-cyan-500",
-    metrics: ["99.99% Uptime", "Auto-scaling", "Global CDN"],
+    icon: Code,
+    title: "Web & App Expansion",
+    description: "High-performance React/Next.js platforms and cross-platform native applications.",
+    color: "from-dark-accent to-mid-accent",
+    metrics: ["Custom UI/UX", "SEO-Optimized", "Global CDN"],
   },
   {
-    icon: Lock,
-    title: "Enterprise Security",
-    description: "Military-grade encryption and compliance with industry security standards.",
-    color: "from-green-500 to-emerald-500",
-    metrics: ["SOC 2 Type II", "GDPR Compliant", "End-to-End Encryption"],
+    icon: Zap,
+    title: "Process Automation Engines",
+    description: "Eliminating manual data entry through custom APIs and deep integration scripting.",
+    color: "from-mid-accent to-light-accent",
+    metrics: ["Python Scrapers", "Make/Zapier", "Zero Human Error"],
   },
   {
-    icon: Globe,
-    title: "Global Infrastructure",
-    description: "Deploy across multiple regions for low latency and high availability.",
-    color: "from-purple-500 to-pink-500",
-    metrics: ["15+ Regions", "Edge Computing", "Multi-cloud Ready"],
+    icon: Database,
+    title: "CMS & ERP Centralization",
+    description: "Unified enterprise platforms linking POS, inventory management, and content.",
+    color: "from-light-accent to-dark-accent",
+    metrics: ["Headless CMS", "Real-time Sync", "Single Source of Truth"],
   },
   {
     icon: TrendingUp,
-    title: "Performance Optimized",
-    description: "Engineered for speed with intelligent caching and load balancing.",
-    color: "from-orange-500 to-red-500",
-    metrics: ["<100ms Response", "99.9% Cache Hit", "Zero Downtime"],
-  },
-  {
-    icon: Users,
-    title: "Team Collaboration",
-    description: "Built for distributed teams with CI/CD and collaborative tools.",
-    color: "from-indigo-500 to-blue-500",
-    metrics: ["GitOps Ready", "Real-time Monitoring", "Team Workspaces"],
+    title: "Strategic SEO & Growth",
+    description: "Organic search optimizations and technical audits to drive high-converting traffic.",
+    color: "from-contrast-accent to-mid-accent",
+    metrics: ["Top Rankings", "Technical SEO", "Growth Analytics"],
   },
   {
     icon: Brain,
-    title: "AI-Ready Platform",
-    description: "Infrastructure optimized for machine learning and AI workloads.",
-    color: "from-violet-500 to-purple-500",
-    metrics: ["GPU Clusters", "ML Pipelines", "Real-time Inference"],
+    title: "Brand Identity & Design",
+    description: "Stunning graphic design and visual component libraries for long-term consistency.",
+    color: "from-dark-accent to-light-accent",
+    metrics: ["Logo Systems", "Figma Prototypes", "Brand Guidelines"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "IT Infrastructure Support",
+    description: "24/7 maintenance, proactive security patching, and unshakeable Uptime SLAs.",
+    color: "from-mid-accent to-contrast-accent",
+    metrics: ["24/7 Monitoring", "Disaster Recovery", "Cloud Management"],
   },
 ];
 
@@ -59,9 +59,9 @@ export default function SolutionFeatures() {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-dark-accent rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-mid-accent rounded-full blur-3xl opacity-30" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -70,18 +70,18 @@ export default function SolutionFeatures() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-gray-900/50 backdrop-blur-sm border border-gray-800 px-4 py-2 rounded-full mb-4">
-            <ShieldCheck className="w-5 h-5 text-green-400" />
-            <span className="text-sm font-medium text-gray-300">Enterprise Features</span>
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 mb-4 bg-dark-accent/10 border border-light-accent/30 rounded-full">
+            <ShieldCheck className="w-4 h-4 text-light-accent" />
+            <span className="text-xs font-semibold text-light-accent uppercase tracking-widest">Enterprise Features</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Built for{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
+            <span className="text-light-accent">
               Scale & Security
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Every feature is designed with enterprise requirements in mind, ensuring reliability, security, and performance at scale.
+            Every core service is designed with enterprise requirements in mind, ensuring reliability, automation, and performance at scale.
           </p>
         </motion.div>
 
@@ -111,7 +111,7 @@ export default function SolutionFeatures() {
                   <div className="space-y-3">
                     {feature.metrics.map((metric, idx) => (
                       <div key={idx} className="flex items-center text-gray-300">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-3" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-dark-accent to-light-accent mr-3" />
                         <span className="text-sm">{metric}</span>
                       </div>
                     ))}
@@ -133,9 +133,9 @@ export default function SolutionFeatures() {
           whileInView={{ opacity: 1, y: 0 }}
           className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-3xl p-8 md:p-12">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-gray-900/50 backdrop-blur-sm border border-gray-800 px-4 py-2 rounded-full mb-4">
-              <Zap className="w-5 h-5 text-yellow-400" />
-              <span className="text-sm font-medium text-gray-300">Technology Stack</span>
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 mb-4 bg-dark-accent/10 border border-light-accent/30 rounded-full">
+              <Zap className="w-4 h-4 text-light-accent" />
+              <span className="text-xs font-semibold text-light-accent uppercase tracking-widest">Technology Stack</span>
             </div>
             <h3 className="text-3xl font-bold text-white mb-4">Modern Technology Foundation</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">

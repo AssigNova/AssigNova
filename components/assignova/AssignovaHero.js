@@ -2,13 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Zap, Shield, Globe, Cpu } from "lucide-react";
-import SplitText from "../SplitText";
-import Shuffle from "../Shuffle";
+import Link from "next/link";
 import Antigravity from "../Antigravity";
-
-const handleAnimationComplete = () => {
-  console.log("All letters have animated!");
-};
+import HeroNexus from "./HeroNexus";
 
 export default function AssignovaHero() {
   const features = [
@@ -47,7 +43,7 @@ export default function AssignovaHero() {
           pointerEvents: "none", // This allows clicks to pass through
         }}>
         <Antigravity
-          count={200}
+          count={100}
           magnetRadius={6}
           ringRadius={7}
           waveSpeed={0.4}
@@ -59,128 +55,103 @@ export default function AssignovaHero() {
           particleVariance={1}
         />
       </div>
-      <section className="min-h-screen relative overflow-hidden pt-32 pb-20">
-        {/* Glowing orbs */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-          <div className="relative w-full h-96">
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
-            />
-            <motion.div
-              animate={{
-                scale: [1.2, 1, 1.2],
-                opacity: [0.2, 0.4, 0.2],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
-            />
-          </div>
-        </div>
+      <section className="min-h-screen relative overflow-hidden pt-32 pb-20 flex items-center">
+        <div className="container mx-auto px-6 relative z-10 block">
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-7xl mx-auto">
+
+            {/* Left Content Column */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center">
+              className="text-left">
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="relative inline-flex items-center space-x-2 px-5 py-2 mb-8 bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden group"
-                style={{
-                  clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
-                }}>
-                {/* Sweeping light effect */}
-                <motion.div
-                  animate={{ x: ["-100%", "200%"] }}
-                  transition={{ repeat: Infinity, duration: 3, ease: "linear", delay: 1 }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
-                />
-                <Cpu className="w-4 h-4 text-light-accent relative z-10" />
-                <span className="text-xs font-semibold text-light-accent uppercase tracking-widest relative z-10">Next-Gen Solutions</span>
+                className="inline-flex items-center space-x-2 px-4 py-1.5 mb-8 bg-dark-accent/10 border border-light-accent/30 rounded-full"
+              >
+                <Cpu className="w-4 h-4 text-light-accent" />
+                <span className="text-xs font-semibold text-light-accent uppercase tracking-widest">Next-Gen Solutions</span>
               </motion.div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-                <SplitText
-                  text="Transform Your"
-                  className="block"
-                  delay={100}
-                  duration={0.6}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 40 }}
-                  to={{ opacity: 1, y: 0 }}
-                  threshold={0.1}
-                  rootMargin="-100px"
-                  textAlign="center"
-                  onLetterAnimationComplete={handleAnimationComplete}
-                />
-
-                <span className="block bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
-                  Digital Future
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+                <span className="block text-white">Unlocking</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-dark-accent to-light-accent">
+                  Possibilities
                 </span>
-              </h1>
+
+              </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
-                We deliver cutting-edge software solutions that drive innovation, accelerate growth, and transform businesses in the digital
-                age.
+                className="text-lg text-gray-500 mb-12 max-w-2xl">
+                Assignova is a premier digital solutions provider specializing in transforming ideas into impactful, high-performance digital experiences.
               </motion.p>
 
               {/* CTA Buttons */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative bg-linear-to-r from-dark-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden">
-                  <span className="relative z-10 flex items-center space-x-2">
-                    <span>Start Your Project</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                </motion.button>
+                className="flex flex-col sm:flex-row gap-4 items-start mb-16 w-full">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative btn-primary px-8 py-4 rounded-xl text-lg overflow-hidden w-full flex justify-center items-center">
+                    <span className="relative z-10 flex items-center space-x-2">
+                      <span>Start Your Project</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                    </span>
+                  </motion.button>
+                </Link>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group bg-gray-900 border border-gray-800 hover:border-gray-700 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all">
-                  <span className="flex items-center space-x-2">
-                    <span>View Our Work</span>
-                    <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
-                  </span>
-                </motion.button>
-              </motion.div>
+                <Link href="/case-studies" className="w-full sm:w-auto">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group btn-secondary px-8 py-4 rounded-xl text-lg w-full flex justify-center items-center">
+                    <span className="flex items-center space-x-2">
+                      <span>View Our Work</span>
+                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
+                    </span>
+                  </motion.button>
+                </Link>
+              </motion.div> */}
 
+
+            </motion.div>
+
+            {/* Right Interactive Nexus Column */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="relative hidden lg:flex items-center justify-center -z-10"
+            >
+              <HeroNexus />
+            </motion.div>
+
+          </div>
+
+          <div className="w-full border-y border-white/5 bg-gray-900/20 backdrop-blur-sm mt-12 py-12">
+            <div className="max-w-7xl mx-auto px-6">
               {/* Stats */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-20">
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 {[
                   { value: "30+", label: "Enterprise Clients" },
                   { value: "98.9%", label: "Uptime SLA" },
@@ -188,15 +159,17 @@ export default function AssignovaHero() {
                   { value: "24/7", label: "Support" },
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                    <div className="text-3xl md:text-4xl font-bold text-light-accent mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-gray-500">{stat.label}</div>
+                    <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
                   </div>
                 ))}
               </motion.div>
-            </motion.div>
+            </div>
+          </div>
 
+          <div className="max-w-6xl mx-auto mt-24">
             {/* Features Grid */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -214,10 +187,10 @@ export default function AssignovaHero() {
                     transition={{ delay: 1.2 + index * 0.1 }}
                     whileHover={{ y: -10 }}
                     className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 group-hover:border-gray-700 transition-colors">
-                      <div className="inline-flex p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-4">
-                        <Icon className="w-6 h-6 text-blue-400" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-dark-accent/5 to-mid-accent/5 rounded-2xl group-hover:bg-dark-accent/10 transition-colors duration-300 pointer-events-none" />
+                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 group-hover:border-mid-accent/50 transition-colors">
+                      <div className="inline-flex p-3 rounded-xl bg-gradient-to-r from-dark-accent/20 to-mid-accent/20 border border-light-accent/20 mb-4">
+                        <Icon className="w-6 h-6 text-light-accent" />
                       </div>
                       <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
                       <p className="text-gray-400 text-sm">{feature.description}</p>
@@ -228,7 +201,7 @@ export default function AssignovaHero() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 }

@@ -59,7 +59,7 @@ export default function WebSolutions() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient bg-clip-text text-transparent">Website Design and Web Development Services</span>
+            <span className="text-light-accent">Website Design and Web Development Services</span>
             <span className="second-text"> You Can Trust </span>
           </h2>
           <p className="text-black max-w-2xl mx-auto">End-to-end digital solutions tailored to your business needs</p>

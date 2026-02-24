@@ -75,7 +75,7 @@ export default function Portfolio() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-heading">
-            We Create <span className="gradient bg-clip-text text-transparent">Websites for Various Industries</span>
+            We Create <span className="text-light-accent">Websites for Various Industries</span>
           </h2>
           <p className="text-gray-900 max-w-2xl mx-auto mb-8">Expert web development services in India across diverse business verticals</p>
 

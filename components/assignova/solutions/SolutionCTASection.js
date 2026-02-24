@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageSquare, Calendar, Download, ArrowRight, CheckCircle, Users, Award, BarChart } from "lucide-react";
-
+import { MessageSquare, Calendar, Download, ArrowRight, CheckCircle, Users, Award, BarChart, Loader2 } from "lucide-react";
+import Link from "next/link";
 const benefits = [
   {
     icon: CheckCircle,
@@ -44,6 +45,50 @@ const resources = [
 ];
 
 export default function SolutionCTASection() {
+  const [formData, setFormData] = useState({
+    email: "",
+    company: "",
+    role: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("idle");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Schedule Demo Request",
+          email: formData.email,
+          phone: "Not provided",
+          website: formData.company,
+          message: `Role: ${formData.role}\nRequested from: Solutions Page Schedule Demo Form`,
+          services: ["Demo Request"],
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ email: "", company: "", role: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background Effects */}
@@ -82,7 +127,7 @@ export default function SolutionCTASection() {
                 <div className="text-center mb-10">
                   <h2 className="text-4xl md:text-5xl font-bold mb-6">
                     Ready to Transform Your{" "}
-                    <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
+                    <span className="text-light-accent">
                       Architecture?
                     </span>
                   </h2>
@@ -120,10 +165,13 @@ export default function SolutionCTASection() {
                     <h3 className="text-2xl font-bold text-white mb-6">Schedule a Demo</h3>
                     <p className="text-gray-400 mb-6">Get a personalized walkthrough of our architecture solutions</p>
 
-                    <div className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <input
                           type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="Your work email"
                           className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
                         />
@@ -131,12 +179,19 @@ export default function SolutionCTASection() {
                       <div>
                         <input
                           type="text"
+                          required
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           placeholder="Company name"
                           className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
                         />
                       </div>
                       <div>
-                        <select className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-blue-500">
+                        <select
+                          required
+                          value={formData.role}
+                          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-blue-500">
                           <option value="">What best describes your role?</option>
                           <option value="cto">CTO / Technical Lead</option>
                           <option value="architect">Solution Architect</option>
@@ -146,16 +201,45 @@ export default function SolutionCTASection() {
                       </div>
 
                       <motion.button
+                        type="submit"
+                        disabled={isSubmitting || submitStatus === "success"}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
-                        <Calendar className="w-5 h-5" />
-                        <span>Schedule Free Consultation</span>
-                        <ArrowRight className="w-5 h-5" />
+                        className="w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-4 sm:px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-2 sm:space-x-3 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed">
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            <span>Scheduling...</span>
+                          </>
+                        ) : submitStatus === "success" ? (
+                          <>
+                            <CheckCircle className="w-5 h-5" />
+                            <span>Demo Scheduled</span>
+                          </>
+                        ) : (
+                          <>
+                            <Calendar className="w-5 h-5 hidden sm:block" />
+                            <span>Schedule Free Consultation</span>
+                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                          </>
+                        )}
                       </motion.button>
 
+                      {submitStatus === "success" && (
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl flex items-start text-green-400">
+                          <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" />
+                          <p className="text-sm">We've received your request! A specialist will contact you shortly to confirm your demo time.</p>
+                        </motion.div>
+                      )}
+
+                      {submitStatus === "error" && (
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm">
+                          There was an error scheduling your demo. Please try again or contact us directly.
+                        </motion.div>
+                      )}
+
                       <p className="text-center text-sm text-gray-500 mt-4">No credit card required • 30-minute session</p>
-                    </div>
+                    </form>
                   </div>
                 </div>
 
@@ -210,8 +294,8 @@ export default function SolutionCTASection() {
                       <h4 className="text-xl font-bold text-white mb-3">{resource.title}</h4>
                       <p className="text-gray-400 mb-6">{resource.description}</p>
 
-                      <motion.button whileHover={{ x: 5 }} className="flex items-center space-x-2 text-blue-400 hover:text-blue-300">
-                        <span className="font-medium">{resource.action}</span>
+                      <motion.button whileHover={{ x: 5 }} className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 mt-auto">
+                        <span className="font-medium text-sm sm:text-base">{resource.action}</span>
                         <ArrowRight className="w-4 h-4" />
                       </motion.button>
                     </div>
@@ -234,21 +318,23 @@ export default function SolutionCTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
-                  <MessageSquare className="w-5 h-5" />
-                  <span>Contact Sales</span>
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                <Link href={"/contact"}>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn-primary px-8 py-4 rounded-xl flex items-center justify-center space-x-3 w-full sm:w-auto">
+                    <MessageSquare className="w-5 h-5" />
+                    <span>Contact Sales</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.button>
+                </Link>
 
-                <motion.button
+                {/* <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gray-800 text-gray-300 rounded-xl font-bold hover:bg-gray-700 transition-all border border-gray-700">
+                  className="btn-secondary px-8 py-4 rounded-xl w-full sm:w-auto flex items-center justify-center">
                   View Pricing
-                </motion.button>
+                </motion.button> */}
               </div>
 
               <p className="text-gray-500 text-sm mt-6">Enterprise plans available • Volume discounts • Custom SLA options</p>

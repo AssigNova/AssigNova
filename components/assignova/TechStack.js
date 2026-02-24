@@ -9,63 +9,63 @@ const techCategories = [
     id: "frontend",
     name: "Frontend",
     icon: Code2,
-    color: "from-blue-500 to-cyan-500",
+    color: "from-dark-accent to-light-accent",
     technologies: [
-      { name: "React", level: 95 },
-      { name: "Next.js", level: 90 },
-      { name: "TypeScript", level: 88 },
-      { name: "Tailwind CSS", level: 92 },
-      { name: "Vue.js", level: 85 },
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "Tailwind CSS" },
+      { name: "Vue.js" },
     ],
   },
   {
     id: "backend",
     name: "Backend",
     icon: Server,
-    color: "from-purple-500 to-pink-500",
+    color: "from-light-accent to-dark-accent",
     technologies: [
-      { name: "Node.js", level: 92 },
-      { name: ".NET Core", level: 88 },
-      { name: "Python", level: 85 },
-      { name: "Java", level: 82 },
-      { name: "Go", level: 80 },
+      { name: "Node.js" },
+      { name: ".NET Core" },
+      { name: "Python" },
+      { name: "Java" },
+      { name: "Go" },
     ],
   },
   {
     id: "database",
     name: "Database",
     icon: Database,
-    color: "from-green-500 to-emerald-500",
+    color: "from-mid-accent to-contrast-accent",
     technologies: [
-      { name: "PostgreSQL", level: 90 },
-      { name: "MongoDB", level: 88 },
-      { name: "Redis", level: 85 },
-      { name: "MySQL", level: 87 },
-      { name: "Elasticsearch", level: 82 },
+      { name: "PostgreSQL" },
+      { name: "MongoDB" },
+      { name: "Redis" },
+      { name: "MySQL" },
+      { name: "Elasticsearch" },
     ],
   },
   {
     id: "cloud",
-    name: "Cloud & DevOps",
+    name: "Infrastructure & Tools",
     icon: Cloud,
-    color: "from-yellow-500 to-orange-500",
+    color: "from-contrast-accent to-dark-accent",
     technologies: [
-      { name: "AWS", level: 92 },
-      { name: "Docker", level: 90 },
-      { name: "Kubernetes", level: 85 },
-      { name: "Azure", level: 83 },
-      { name: "Terraform", level: 80 },
+      { name: "AWS" },
+      { name: "Vercel" },
+      { name: "Docker" },
+      { name: "Figma" },
+      { name: "Google Analytics" },
     ],
   },
 ];
 
 const trendingTech = [
-  { name: "AI/ML Integration", trend: "up" },
-  { name: "Blockchain Solutions", trend: "up" },
-  { name: "IoT Development", trend: "steady" },
-  { name: "AR/VR Experiences", trend: "up" },
-  { name: "Edge Computing", trend: "up" },
-  { name: "Quantum Computing", trend: "emerging" },
+  { name: "Next.js App Router", trend: "up" },
+  { name: "Headless CMS", trend: "up" },
+  { name: "Serverless Architecture", trend: "steady" },
+  { name: "Programmatic SEO", trend: "up" },
+  { name: "Motion Design (GSAP)", trend: "up" },
+  { name: "Generative AI Integration", trend: "emerging" },
 ];
 
 export default function TechStack() {
@@ -88,7 +88,7 @@ export default function TechStack() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Technology{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Stack</span>
+            <span className="text-light-accent">Stack</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Leveraging cutting-edge technologies to build scalable, secure, and high-performance solutions.
@@ -108,11 +108,10 @@ export default function TechStack() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-medium transition-all ${
-                    isActive
-                      ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                      : "bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
-                  }`}>
+                  className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-medium transition-all ${isActive
+                    ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
+                    : "bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
+                    }`}>
                   <Icon className="w-5 h-5" />
                   <span>{category.name}</span>
                 </motion.button>
@@ -133,25 +132,17 @@ export default function TechStack() {
                 </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                 {activeCat.technologies.map((tech, index) => (
                   <motion.div
                     key={tech.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-300 font-medium">{tech.name}</span>
-                      <span className="text-blue-400 font-bold">{tech.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-800 rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${tech.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        className={`h-2 rounded-full bg-gradient-to-r ${activeCat.color}`}
-                      />
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="group"
+                  >
+                    <div className="bg-gray-800/40 border border-gray-700/50 rounded-xl max-w-sm p-4 flex items-center justify-center hover:bg-gray-800 hover:border-gray-600 transition-colors text-center cursor-default">
+                      <span className="text-gray-300 font-medium whitespace-nowrap overflow-hidden text-ellipsis">{tech.name}</span>
                     </div>
                   </motion.div>
                 ))}
@@ -164,7 +155,7 @@ export default function TechStack() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl p-8 border border-gray-800">
+            className="bg-gradient-to-r from-dark-accent/10 via-mid-accent/10 to-light-accent/10 rounded-3xl p-8 border border-gray-800">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">Trending Technologies</h3>
@@ -179,18 +170,16 @@ export default function TechStack() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
-                    className={`text-center p-4 rounded-xl border ${
-                      tech.trend === "up"
-                        ? "border-green-500/30 bg-green-500/5"
-                        : tech.trend === "steady"
-                          ? "border-blue-500/30 bg-blue-500/5"
-                          : "border-purple-500/30 bg-purple-500/5"
-                    }`}>
+                    className={`text-center p-4 rounded-xl border ${tech.trend === "up"
+                      ? "border-light-accent/30 bg-light-accent/5"
+                      : tech.trend === "steady"
+                        ? "border-mid-accent/30 bg-mid-accent/5"
+                        : "border-contrast-accent/30 bg-contrast-accent/5"
+                      }`}>
                     <div className="text-sm font-medium text-white mb-1">{tech.name}</div>
                     <div
-                      className={`text-xs ${
-                        tech.trend === "up" ? "text-green-400" : tech.trend === "steady" ? "text-blue-400" : "text-purple-400"
-                      }`}>
+                      className={`text-xs ${tech.trend === "up" ? "text-light-accent" : tech.trend === "steady" ? "text-mid-accent" : "text-contrast-accent"
+                        }`}>
                       {tech.trend === "up" ? "Growing" : tech.trend === "steady" ? "Steady" : "Emerging"}
                     </div>
                   </motion.div>

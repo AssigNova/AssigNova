@@ -60,7 +60,7 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div>
             <h2 className="text-4xl font-bold mb-6">
-              <span className="text-white bg-clip-text text-transparent">Get in Touch</span>
+              <span className="text-white">Get in Touch</span>
             </h2>
             <p className="text-gray-400 mb-8 text-lg">
               Have a project in mind? Let's discuss how we can help transform your ideas into reality.
@@ -111,7 +111,7 @@ export default function ContactSection() {
                 <div className="text-5xl mb-4">🎉</div>
                 <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
                 <p className="text-gray-400 mb-6">We've received your message and will contact you within 24 hours.</p>
-                <button onClick={() => setIsSubmitted(false)} className="px-6 py-3 button-assignova rounded-lg font-medium">
+                <button onClick={() => setIsSubmitted(false)} className="px-6 py-3 btn-primary rounded-lg">
                   Send Another Message
                 </button>
               </div>

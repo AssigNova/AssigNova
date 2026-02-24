@@ -1,56 +1,56 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Cloud, Shield, Brain, Database, Globe, Smartphone, BarChart } from "lucide-react";
-
+import { Code, Server, Presentation, Database, Zap, Palette, Smartphone, PenTool } from "lucide-react";
+import Link from "next/link";
 const services = [
   {
     icon: Code,
-    title: "Custom Software Development",
-    description: "Tailored solutions built from scratch to meet your specific business needs.",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Infrastructure",
-    description: "Scalable cloud solutions with AWS, Azure, and Google Cloud expertise.",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Brain,
-    title: "AI & Machine Learning",
-    description: "Intelligent systems that learn, adapt, and automate complex processes.",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    description: "Protect your digital assets with enterprise-grade security solutions.",
-    color: "from-yellow-500 to-orange-500",
-  },
-  {
-    icon: Database,
-    title: "Data Engineering",
-    description: "Transform raw data into actionable insights with powerful analytics.",
-    color: "from-red-500 to-pink-500",
-  },
-  {
-    icon: Globe,
     title: "Web Development",
-    description: "Modern web applications with cutting-edge technologies.",
-    color: "from-indigo-500 to-blue-500",
+    description: "Modern, responsive, and high-performance websites and web applications.",
+    color: "from-dark-accent to-mid-accent",
   },
   {
     icon: Smartphone,
-    title: "Mobile Development",
+    title: "Application Development",
     description: "Native and cross-platform mobile apps for iOS and Android.",
-    color: "from-blue-500 to-purple-500",
+    color: "from-light-accent to-dark-accent",
   },
   {
-    icon: BarChart,
-    title: "Digital Transformation",
-    description: "Comprehensive strategy to modernize your business processes.",
-    color: "from-cyan-500 to-green-500",
+    icon: Server,
+    title: "IT Support Services",
+    description: "Reliable infrastructure support to keep your business running smoothly.",
+    color: "from-mid-accent to-light-accent",
+  },
+  {
+    icon: Zap,
+    title: "Process Automation",
+    description: "Intelligent workflows that eliminate manual tasks and accelerate operations.",
+    color: "from-contrast-accent to-dark-accent",
+  },
+  {
+    icon: Database,
+    title: "CMS / POS / ERP Systems",
+    description: "Centralized platforms to manage your entire business ecosystem seamlessly.",
+    color: "from-dark-accent to-light-accent",
+  },
+  {
+    icon: Presentation,
+    title: "Search Engine Optimization",
+    description: "Dominate search rankings and drive organic traffic to your digital storefront.",
+    color: "from-mid-accent to-dark-accent",
+  },
+  {
+    icon: Palette,
+    title: "Graphic Design",
+    description: "Eye-catching visuals and marketing collateral that captivate your audience.",
+    color: "from-light-accent to-mid-accent",
+  },
+  {
+    icon: PenTool,
+    title: "Brand Identity",
+    description: "Cohesive branding strategies that ensure your business stands out.",
+    color: "from-contrast-accent to-mid-accent",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function ServicesShowcase() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Our{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">Services</span>
+            <span className="text-light-accent">Services</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Comprehensive digital solutions designed to accelerate your business growth and technological innovation.
@@ -100,7 +100,7 @@ export default function ServicesShowcase() {
                   <p className="text-gray-400 mb-6">{service.description}</p>
 
                   {/* Hover Arrow */}
-                  <div className="flex items-center text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center text-light-accent opacity-0 group-hover:opacity-100 transition-opacity">
                     <span className="text-sm font-medium">Learn more</span>
                     <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="ml-2">
                       →
@@ -132,12 +132,14 @@ export default function ServicesShowcase() {
               <p className="text-gray-400 mb-8">
                 Let's discuss how our services can drive your digital transformation and deliver measurable results.
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all">
-                Schedule a Consultation
-              </motion.button>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-primary px-8 py-4 rounded-xl text-lg">
+                  Schedule a Consultation
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>

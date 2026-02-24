@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import {
   Puzzle,
   Zap,
@@ -22,13 +22,20 @@ import {
   Globe,
   BarChart,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function SolutionsHero() {
   // Change this line:
   const [hoveredFace, setHoveredFace] = useState(null);
-  const [cubeRotation, setCubeRotation] = useState({ x: 0, y: 0 });
   const [isMounted, setIsMounted] = useState(false);
   const [randomValues, setRandomValues] = useState([]);
+
+  // Use Framer Motion values for performance (no re-renders on every mouse move)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [40, -40]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-40, 40]), springConfig);
 
   useEffect(() => {
     // Generate random values only once on the client
@@ -49,57 +56,57 @@ export default function SolutionsHero() {
       icon: Puzzle,
       title: "Modular Design",
       description: "Scalable components that fit together seamlessly",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-dark-accent to-mid-accent",
     },
     {
       icon: Zap,
       title: "Fast Implementation",
       description: "Rapid deployment with minimal disruption",
-      color: "from-purple-500 to-pink-500",
+      color: "from-mid-accent to-light-accent",
     },
     {
       icon: Target,
       title: "Precision Focus",
       description: "Targeted solutions for specific business challenges",
-      color: "from-green-500 to-emerald-500",
+      color: "from-contrast-accent to-mid-accent",
     },
     {
       icon: Layers,
       title: "Future-proof",
       description: "Built to adapt and grow with your business",
-      color: "from-yellow-500 to-orange-500",
+      color: "from-light-accent to-dark-accent",
     },
   ];
 
   // Cube faces with relevant architecture content
   const cubeFaces = [
     {
-      id: "cloud",
-      title: "Cloud Native",
+      id: "applications",
+      title: "Custom Application",
       icon: Cloud,
-      description: "Designed for cloud scalability",
-      color: "from-blue-500/20 to-cyan-500/20",
-      borderColor: "border-blue-500/30",
+      description: "Designed for you",
+      color: "from-dark-accent/20 to-mid-accent/20",
+      borderColor: "border-dark-accent/30",
       rotation: "rotateY(0deg) translateZ(100px)",
       position: "front",
     },
     {
-      id: "ai",
-      title: "AI Ready",
-      icon: Brain,
-      description: "ML & AI integration ready",
-      color: "from-purple-500/20 to-pink-500/20",
-      borderColor: "border-purple-500/30",
+      id: "automation",
+      title: "Automated",
+      icon: Zap,
+      description: "intelligent workflows",
+      color: "from-mid-accent/20 to-light-accent/20",
+      borderColor: "border-mid-accent/30",
       rotation: "rotateY(180deg) translateZ(100px)",
       position: "back",
     },
     {
-      id: "data",
-      title: "Data Driven",
+      id: "websites",
+      title: "Websites",
       icon: Database,
-      description: "Real-time analytics & insights",
-      color: "from-green-500/20 to-emerald-500/20",
-      borderColor: "border-green-500/30",
+      description: "CMS & ERP core engines",
+      color: "from-contrast-accent/20 to-mid-accent/20",
+      borderColor: "border-contrast-accent/30",
       rotation: "rotateY(90deg) translateZ(100px)",
       position: "right",
     },
@@ -108,18 +115,18 @@ export default function SolutionsHero() {
       title: "Secure",
       icon: Shield,
       description: "Enterprise-grade security",
-      color: "from-yellow-500/20 to-orange-500/20",
-      borderColor: "border-yellow-500/30",
+      color: "from-light-accent/20 to-dark-accent/20",
+      borderColor: "border-light-accent/30",
       rotation: "rotateY(-90deg) translateZ(100px)",
       position: "left",
     },
     {
-      id: "microservices",
-      title: "Microservices",
+      id: "branding",
+      title: "Branding",
       icon: GitBranch,
-      description: "Decoupled architecture",
-      color: "from-indigo-500/20 to-violet-500/20",
-      borderColor: "border-indigo-500/30",
+      description: "Let's build an identity",
+      color: "from-dark-accent/20 to-contrast-accent/20",
+      borderColor: "border-dark-accent/30",
       rotation: "rotateX(90deg) translateZ(100px)",
       position: "top",
     },
@@ -128,8 +135,8 @@ export default function SolutionsHero() {
       title: "Scalable",
       icon: Server,
       description: "Auto-scaling infrastructure",
-      color: "from-rose-500/20 to-red-500/20",
-      borderColor: "border-rose-500/30",
+      color: "from-mid-accent/20 to-dark-accent/20",
+      borderColor: "border-mid-accent/30",
       rotation: "rotateX(-90deg) translateZ(100px)",
       position: "bottom",
     },
@@ -143,23 +150,18 @@ export default function SolutionsHero() {
     { label: "Zero", value: "Downtime" },
   ];
 
-  // Handle cube rotation on mouse move
+  // Handle cube rotation on mouse move without re-rendering manually
   const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-
-    // Calculate rotation based on mouse position relative to center
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-
-    const rotateY = ((clientX - centerX) / width) * 40; // Max 40 degrees
-    const rotateX = ((centerY - clientY) / height) * 40; // Max 40 degrees
-
-    setCubeRotation({ x: rotateX, y: rotateY });
+    const x = (e.clientX - left - width / 2) / width;
+    const y = (e.clientY - top - height / 2) / height;
+    mouseX.set(x);
+    mouseY.set(y);
   };
 
   const handleMouseLeave = () => {
-    setCubeRotation({ x: 0, y: 0 });
+    mouseX.set(0);
+    mouseY.set(0);
   };
 
   return (
@@ -178,7 +180,7 @@ export default function SolutionsHero() {
           }}
           className="absolute top-1/4 left-1/4 w-96 h-96 opacity-10">
           <div
-            className="w-full h-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10"
+            className="w-full h-full bg-gradient-to-r from-dark-accent/10 via-mid-accent/10 to-light-accent/10"
             style={{ clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)" }}
           />
         </motion.div>
@@ -195,7 +197,7 @@ export default function SolutionsHero() {
           }}
           className="absolute bottom-1/4 right-1/4 w-64 h-64 opacity-10">
           <div
-            className="w-full h-full bg-gradient-to-r from-cyan-500/10 via-green-500/10 to-emerald-500/10"
+            className="w-full h-full bg-gradient-to-r from-light-accent/10 via-mid-accent/10 to-dark-accent/10"
             style={{ clipPath: "polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%)" }}
           />
         </motion.div>
@@ -235,17 +237,17 @@ export default function SolutionsHero() {
             <div className="lg:col-span-2">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", delay: 0.2 }}
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
-                  <Sparkles className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm font-medium text-blue-300">Tailored Digital Solutions</span>
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-flex items-center space-x-2 px-4 py-1.5 mb-8 bg-dark-accent/10 border border-light-accent/30 rounded-full">
+                  <Target className="w-4 h-4 text-light-accent" />
+                  <span className="text-xs font-semibold text-light-accent uppercase tracking-widest">Tailored Digital Solutions</span>
                 </motion.div>
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
                   <span className="block">Smart</span>
-                  <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
+                  <span className="block text-light-accent">
                     Solutions
                   </span>
                   <span className="block text-gray-400 text-4xl md:text-5xl mt-6">for Modern Challenges</span>
@@ -265,26 +267,19 @@ export default function SolutionsHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   className="flex flex-col sm:flex-row gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden">
-                    <span className="relative z-10 flex items-center space-x-2">
-                      <span>Explore Solutions</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                  </motion.button>
+                  <Link href={"/case-studies"}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="group relative btn-primary px-8 py-4 rounded-xl text-lg overflow-hidden w-full sm:w-auto flex justify-center">
+                      <span className="relative z-10 flex items-center space-x-2">
+                        <span>Explore Case Studies</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                      </span>
+                    </motion.button>
+                  </Link>
 
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group bg-gray-900 border border-gray-800 hover:border-gray-700 text-gray-300 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all">
-                    <span className="flex items-center space-x-2">
-                      <span>Watch Demo</span>
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                    </span>
-                  </motion.button>
+
                 </motion.div>
               </motion.div>
             </div>
@@ -306,118 +301,126 @@ export default function SolutionsHero() {
                   className="relative w-full h-full"
                   style={{
                     transformStyle: "preserve-3d",
-                    transform: `rotateX(${cubeRotation.x}deg) rotateY(${cubeRotation.y}deg)`,
-                  }}
-                  animate={{
-                    rotateX: [0, 180, 360],
-                    rotateY: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
+                    rotateX: rotateX,
+                    rotateY: rotateY,
                   }}>
-                  {/* Cube Faces */}
-                  {cubeFaces.map((face) => {
-                    const Icon = face.icon;
-                    const isHovered = hoveredFace === face.id;
+                  <motion.div
+                    className="relative w-full h-full"
+                    style={{ transformStyle: "preserve-3d" }}
+                    animate={{
+                      rotateX: [0, 180, 360],
+                      rotateY: [0, 180, 360],
+                    }}
+                    transition={{
+                      duration: 25,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}>
+                    {/* Cube Faces */}
+                    {cubeFaces.map((face) => {
+                      const Icon = face.icon;
+                      const isHovered = hoveredFace === face.id;
 
-                    return (
-                      <div
-                        key={face.id}
-                        className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br ${face.color} border ${face.borderColor} rounded-xl backdrop-blur-sm transition-all duration-300`}
-                        style={{
-                          transform: face.rotation,
-                          transformStyle: "preserve-3d",
-                        }}
-                        onMouseEnter={() => setHoveredFace(face.id)}
-                        onMouseLeave={() => setHoveredFace(null)}>
-                        {/* Hover overlay */}
-                        {isHovered && (
+                      return (
+                        <div
+                          key={face.id}
+                          className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br ${face.color} border ${face.borderColor} rounded-xl backdrop-blur-sm transition-all duration-300`}
+                          style={{
+                            transform: face.rotation,
+                            transformStyle: "preserve-3d",
+                          }}
+                          onMouseEnter={() => setHoveredFace(face.id)}
+                          onMouseLeave={() => setHoveredFace(null)}>
+                          {/* Hover overlay */}
+                          {isHovered && (
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"
+                            />
+                          )}
+
+                          {/* Icon */}
                           <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"
-                          />
-                        )}
+                            animate={isHovered ? { scale: 1.2, rotate: 5 } : { scale: 1, rotate: 0 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="relative mb-3 p-3 bg-white/10 rounded-xl">
+                            <Icon className="w-8 h-8 text-white" />
 
-                        {/* Icon */}
-                        <motion.div
-                          animate={isHovered ? { scale: 1.2, rotate: 5 } : { scale: 1, rotate: 0 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                          className="relative mb-3 p-3 bg-white/10 rounded-xl">
-                          <Icon className="w-8 h-8 text-white" />
+                            {/* Glow effect on hover */}
+                            {isHovered && (
+                              <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="absolute inset-0 bg-current rounded-xl blur-md opacity-30"
+                              />
+                            )}
+                          </motion.div>
 
-                          {/* Glow effect on hover */}
+                          {/* Title */}
+                          <motion.h3 animate={isHovered ? { y: -5 } : { y: 0 }} className="text-lg font-bold text-white text-center mb-2">
+                            {face.title}
+                          </motion.h3>
+
+                          {/* Description */}
+                          <motion.p
+                            animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0.8, y: 0 }}
+                            className="text-xs text-gray-300 text-center px-2">
+                            {face.description}
+                          </motion.p>
+
+                          {/* Decorative Corner */}
+                          <div className={`absolute top-2 right-2 w-6 h-6 border-t border-r ${face.borderColor}`} />
+                          <div className={`absolute bottom-2 left-2 w-6 h-6 border-b border-l ${face.borderColor}`} />
+
+                          {/* Hover indicator */}
                           {isHovered && (
                             <motion.div
                               initial={{ scale: 0 }}
                               animate={{ scale: 1 }}
-                              className="absolute inset-0 bg-current rounded-xl blur-md opacity-30"
+                              className="absolute top-1 right-1 w-3 h-3 bg-gradient-to-r from-dark-accent to-light-accent rounded-full"
                             />
                           )}
-                        </motion.div>
+                        </div>
+                      );
+                    })}
 
-                        {/* Title */}
-                        <motion.h3 animate={isHovered ? { y: -5 } : { y: 0 }} className="text-lg font-bold text-white text-center mb-2">
-                          {face.title}
-                        </motion.h3>
+                    {/* Cube Center - Architectural Metrics */}
+                    <motion.div
+                      className="absolute top-1/2 left-1/2 w-40 h-40"
+                      style={{
+                        transformStyle: "preserve-3d",
+                        x: "-50%",
+                        y: "-50%",
+                        rotateX: useTransform(rotateX, (r) => -r * 0.5),
+                        rotateY: useTransform(rotateY, (r) => -r * 0.5),
+                      }}>
+                      {/* Central Architecture Metrics */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/60 border border-gray-800 rounded-xl backdrop-blur-sm flex flex-col items-center justify-center p-4">
+                        <div className="text-center mb-3">
+                          <div className="text-xs text-gray-400 mb-1">Architecture</div>
+                          <div className="text-sm font-bold text-white">Metrics</div>
+                        </div>
 
-                        {/* Description */}
-                        <motion.p
-                          animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0.8, y: 0 }}
-                          className="text-xs text-gray-300 text-center px-2">
-                          {face.description}
-                        </motion.p>
+                        <div className="grid grid-cols-2 gap-2 w-full">
+                          {architectureMetrics.map((metric, idx) => (
+                            <motion.div
+                              key={idx}
+                              whileHover={{ scale: 1.05 }}
+                              className="text-center p-2 bg-gray-800/50 rounded cursor-pointer">
+                              <div className="text-xs font-bold text-white">{metric.label}</div>
+                              <div className="text-[10px] text-gray-400">{metric.value}</div>
+                            </motion.div>
+                          ))}
+                        </div>
 
-                        {/* Decorative Corner */}
-                        <div className={`absolute top-2 right-2 w-6 h-6 border-t border-r ${face.borderColor}`} />
-                        <div className={`absolute bottom-2 left-2 w-6 h-6 border-b border-l ${face.borderColor}`} />
-
-                        {/* Hover indicator */}
-                        {isHovered && (
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="absolute top-1 right-1 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                          />
-                        )}
+                        {/* Central Icon */}
+                        <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-dark-accent to-light-accent rounded-full flex items-center justify-center">
+                          <Cpu className="w-4 h-4 text-white" />
+                        </div>
                       </div>
-                    );
-                  })}
-
-                  {/* Cube Center - Architectural Metrics */}
-                  <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40"
-                    style={{
-                      transformStyle: "preserve-3d",
-                      transform: `rotateY(${-cubeRotation.y * 0.5}deg) rotateX(${-cubeRotation.x * 0.5}deg)`,
-                    }}>
-                    {/* Central Architecture Metrics */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/60 border border-gray-800 rounded-xl backdrop-blur-sm flex flex-col items-center justify-center p-4">
-                      <div className="text-center mb-3">
-                        <div className="text-xs text-gray-400 mb-1">Architecture</div>
-                        <div className="text-sm font-bold text-white">Metrics</div>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2 w-full">
-                        {architectureMetrics.map((metric, idx) => (
-                          <motion.div
-                            key={idx}
-                            whileHover={{ scale: 1.05 }}
-                            className="text-center p-2 bg-gray-800/50 rounded cursor-pointer">
-                            <div className="text-xs font-bold text-white">{metric.label}</div>
-                            <div className="text-[10px] text-gray-400">{metric.value}</div>
-                          </motion.div>
-                        ))}
-                      </div>
-
-                      {/* Central Icon */}
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                        <Cpu className="w-4 h-4 text-white" />
-                      </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
 
                 {/* Glowing Orb */}
@@ -425,14 +428,14 @@ export default function SolutionsHero() {
                   animate={{
                     scale: [1, 1.2, 1],
                     boxShadow: [
-                      "0 0 20px rgba(59, 130, 246, 0.3)",
-                      "0 0 40px rgba(139, 92, 246, 0.4)",
-                      "0 0 60px rgba(236, 72, 153, 0.3)",
-                      "0 0 20px rgba(59, 130, 246, 0.3)",
+                      "0 0 20px rgba(92, 129, 196, 0.3)",
+                      "0 0 40px rgba(156, 177, 215, 0.4)",
+                      "0 0 60px rgba(124, 168, 224, 0.3)",
+                      "0 0 20px rgba(92, 129, 196, 0.3)",
                     ],
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30 blur-md pointer-events-none"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent opacity-20 blur-md pointer-events-none"
                 />
 
                 {/* Connection Lines */}
@@ -487,8 +490,8 @@ export default function SolutionsHero() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}>
-                <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-lg p-3 backdrop-blur-sm">
-                  <Code className="w-5 h-5 text-blue-400" />
+                <div className="bg-gradient-to-r from-dark-accent/10 to-mid-accent/10 border border-dark-accent/20 rounded-lg p-3 backdrop-blur-sm">
+                  <Code className="w-5 h-5 text-mid-accent" />
                 </div>
               </motion.div>
 
@@ -503,8 +506,8 @@ export default function SolutionsHero() {
                   ease: "easeInOut",
                   delay: 1,
                 }}>
-                <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-3 backdrop-blur-sm">
-                  <Database className="w-5 h-5 text-green-400" />
+                <div className="bg-gradient-to-r from-mid-accent/10 to-light-accent/10 border border-mid-accent/20 rounded-lg p-3 backdrop-blur-sm">
+                  <Database className="w-5 h-5 text-light-accent" />
                 </div>
               </motion.div>
 
@@ -519,8 +522,8 @@ export default function SolutionsHero() {
                   ease: "easeInOut",
                   delay: 0.5,
                 }}>
-                <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-lg p-3 backdrop-blur-sm">
-                  <Network className="w-5 h-5 text-purple-400" />
+                <div className="bg-gradient-to-r from-contrast-accent/10 to-mid-accent/10 border border-contrast-accent/20 rounded-lg p-3 backdrop-blur-sm">
+                  <Network className="w-5 h-5 text-contrast-accent" />
                 </div>
               </motion.div>
             </motion.div>

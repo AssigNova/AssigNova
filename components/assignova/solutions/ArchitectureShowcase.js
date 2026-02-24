@@ -20,67 +20,67 @@ import {
 
 const architectureLayers = [
   {
-    layer: "Presentation",
+    layer: "Digital Interfaces",
     icon: Layers,
-    color: "from-blue-500 to-cyan-500",
-    description: "User interfaces and client-side applications",
+    color: "from-dark-accent to-mid-accent",
+    description: "High-performance web and mobile frontends",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    components: ["Web Apps", "Mobile Apps", "Admin Dashboards", "API Clients"],
+    components: ["Web Apps", "Mobile Apps", "UI/UX Components", "Admin Dashboards"],
   },
   {
-    layer: "Application",
+    layer: "Automation & Logic",
     icon: Cpu,
-    color: "from-purple-500 to-pink-500",
-    description: "Business logic and core application services",
-    technologies: ["Node.js", ".NET Core", "Python", "Java"],
-    components: ["API Gateway", "Microservices", "Business Logic", "Authentication"],
+    color: "from-mid-accent to-light-accent",
+    description: "Core business logic and automated scripting",
+    technologies: ["Node.js", "Python", "Make", "REST APIs"],
+    components: ["API Gateways", "RPA Bots", "Web Scrapers", "Authentication"],
   },
   {
-    layer: "Data",
+    layer: "CMS & ERP Core",
     icon: Database,
-    color: "from-green-500 to-emerald-500",
-    description: "Data storage, caching, and processing",
-    technologies: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"],
-    components: ["Databases", "Caches", "Data Lakes", "Message Queues"],
+    color: "from-light-accent to-dark-accent",
+    description: "Centralized data storage and content management",
+    technologies: ["PostgreSQL", "Headless CMS", "Redis", "Supabase"],
+    components: ["Databases", "Inventory systems", "POS Syncs", "Data Lakes"],
   },
   {
-    layer: "Infrastructure",
+    layer: "Cloud & Support",
     icon: Cloud,
-    color: "from-yellow-500 to-orange-500",
-    description: "Cloud infrastructure and deployment",
-    technologies: ["AWS", "Docker", "Kubernetes", "Terraform"],
-    components: ["Containers", "Orchestration", "Networking", "Monitoring"],
+    color: "from-contrast-accent to-mid-accent",
+    description: "Secure infrastructure and global deployment",
+    technologies: ["Vercel", "AWS", "Docker", "Cloudflare"],
+    components: ["Edge Networks", "Server Monitoring", "Security Patching"],
   },
 ];
 
 const architecturePatterns = [
   {
-    name: "Microservices",
+    name: "Headless CMS Architecture",
     icon: GitBranch,
-    description: "Decoupled services for independent scaling",
-    benefits: ["Independent Deployment", "Technology Diversity", "Team Autonomy"],
-    useCase: "Large-scale enterprise applications",
+    description: "Decoupled frontends for blazing fast user experiences",
+    benefits: ["Omnichannel Delivery", "Security Isolation", "Flexible UIs"],
+    useCase: "Content-heavy marketing sites and e-commerce platforms",
   },
   {
-    name: "Serverless",
+    name: "Automated Workflows",
     icon: Zap,
-    description: "Event-driven, auto-scaling architectures",
-    benefits: ["Zero Management", "Pay-per-use", "Infinite Scaling"],
-    useCase: "Event processing and APIs",
+    description: "Intelligent API bridging and background task scraping",
+    benefits: ["Zero Manual Entry", "Error Reduction", "Rapid Execution"],
+    useCase: "Data synchronization across distinct enterprise tools",
   },
   {
-    name: "Event-Driven",
+    name: "Centralized Systems",
     icon: Network,
-    description: "Loosely coupled systems communicating via events",
-    benefits: ["High Scalability", "Resilience", "Real-time Processing"],
-    useCase: "Real-time analytics and notifications",
+    description: "Unified databases linking POS, inventory, and logic",
+    benefits: ["Single Source of Truth", "Real-time Sync", "Cross-department visibility"],
+    useCase: "Enterprises needing custom ERP replacements",
   },
   {
-    name: "Monolith First",
+    name: "Rapid MVP Deployment",
     icon: Server,
-    description: "Start simple, evolve as needed",
-    benefits: ["Simplicity", "Faster Development", "Easier Debugging"],
-    useCase: "MVPs and small to medium applications",
+    description: "Agile-focused foundation to launch core products fast",
+    benefits: ["Faster Time-to-Market", "Scalable Base", "Cost Effective"],
+    useCase: "Startups and experimental enterprise ventures",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function ArchitectureShowcase() {
               <line x1="80" y1="50" x2="80" y2="80" stroke="currentColor" strokeWidth="0.5" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#network-pattern)" className="text-blue-500" />
+          <rect width="100%" height="100%" fill="url(#network-pattern)" className="text-light-accent" />
         </svg>
       </div>
 
@@ -133,7 +133,7 @@ export default function ArchitectureShowcase() {
           className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Modern{" "}
-            <span className="bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
+            <span className="text-light-accent">
               Architecture
             </span>
           </h2>
@@ -146,9 +146,9 @@ export default function ArchitectureShowcase() {
           {/* Architectural Layers - Stack Visualization */}
           <div className="relative mb-20">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-2 bg-gray-900/50 backdrop-blur-sm border border-gray-800 px-4 py-2 rounded-full mb-4">
-                <Layers className="w-5 h-5 text-blue-400" />
-                <span className="text-sm font-medium text-gray-300">Layered Architecture</span>
+              <div className="inline-flex items-center space-x-2 px-4 py-1.5 mb-4 bg-dark-accent/10 border border-light-accent/30 rounded-full">
+                <Layers className="w-4 h-4 text-light-accent" />
+                <span className="text-xs font-semibold text-light-accent uppercase tracking-widest">Layered Architecture</span>
               </div>
               <h3 className="text-3xl font-bold text-white mb-4">Scalable System Design</h3>
               <p className="text-gray-400 max-w-2xl mx-auto">
@@ -172,12 +172,11 @@ export default function ArchitectureShowcase() {
                     <motion.button
                       onClick={() => setExpandedLayer(isExpanded ? null : index)}
                       whileHover={{ x: isExpanded ? 0 : 10 }}
-                      className={`w-full bg-gray-900/50 backdrop-blur-sm border rounded-xl p-6 text-left transition-all duration-300 ${
-                        isExpanded ? "border-gray-700 shadow-xl" : "border-gray-800 hover:border-gray-700"
-                      }`}>
-                      <div className="flex items-center justify-between">
+                      className={`w-full bg-gray-900/50 backdrop-blur-sm border rounded-xl p-6 text-left transition-all duration-300 ${isExpanded ? "border-gray-700 shadow-xl" : "border-gray-800 hover:border-gray-700"
+                        }`}>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div className="flex items-center space-x-4">
-                          <div className={`p-3 rounded-lg bg-gradient-to-r ${layer.color}`}>
+                          <div className={`p-3 rounded-lg bg-gradient-to-r ${layer.color} flex-shrink-0`}>
                             <Icon className="w-6 h-6 text-white" />
                           </div>
                           <div>
@@ -186,10 +185,10 @@ export default function ArchitectureShowcase() {
                           </div>
                         </div>
 
-                        <div className="flex items-center space-x-4">
-                          <div className="flex space-x-2">
+                        <div className="flex items-center justify-between sm:justify-end space-x-4 w-full sm:w-auto pt-4 sm:pt-0 border-t border-gray-800 sm:border-0 mt-4 sm:mt-0">
+                          <div className="flex flex-wrap gap-2">
                             {layer.technologies.slice(0, 3).map((tech) => (
-                              <span key={tech} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs">
+                              <span key={tech} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs whitespace-nowrap">
                                 {tech}
                               </span>
                             ))}
@@ -221,7 +220,7 @@ export default function ArchitectureShowcase() {
                               <ul className="space-y-2">
                                 {layer.components.map((component) => (
                                   <li key={component} className="flex items-center text-gray-400">
-                                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-3" />
+                                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-dark-accent to-light-accent mr-3" />
                                     {component}
                                   </li>
                                 ))}
@@ -245,9 +244,9 @@ export default function ArchitectureShowcase() {
           {/* Architecture Patterns - Card Grid */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} className="mb-20">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-2 bg-gray-900/50 backdrop-blur-sm border border-gray-800 px-4 py-2 rounded-full mb-4">
-                <Network className="w-5 h-5 text-purple-400" />
-                <span className="text-sm font-medium text-gray-300">Architectural Patterns</span>
+              <div className="inline-flex items-center space-x-2 px-4 py-1.5 mb-4 bg-dark-accent/10 border border-light-accent/30 rounded-full">
+                <Network className="w-4 h-4 text-light-accent" />
+                <span className="text-xs font-semibold text-light-accent uppercase tracking-widest">Architectural Patterns</span>
               </div>
               <h3 className="text-3xl font-bold text-white mb-4">Choose the Right Pattern</h3>
               <p className="text-gray-400 max-w-2xl mx-auto">Different challenges require different architectural approaches</p>
@@ -269,35 +268,31 @@ export default function ArchitectureShowcase() {
                     className={`relative group ${isActive ? "transform lg:scale-105" : ""}`}>
                     {/* Background Glow */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-r ${
-                        index === 0
-                          ? "from-blue-500/20 to-cyan-500/20"
-                          : index === 1
-                            ? "from-purple-500/20 to-pink-500/20"
-                            : index === 2
-                              ? "from-green-500/20 to-emerald-500/20"
-                              : "from-yellow-500/20 to-orange-500/20"
-                      } rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 ${
-                        isActive ? "opacity-100" : ""
-                      }`}
+                      className={`absolute inset-0 bg-gradient-to-r ${index === 0
+                        ? "from-dark-accent/20 to-mid-accent/20"
+                        : index === 1
+                          ? "from-mid-accent/20 to-light-accent/20"
+                          : index === 2
+                            ? "from-light-accent/20 to-dark-accent/20"
+                            : "from-contrast-accent/20 to-mid-accent/20"
+                        } rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 ${isActive ? "opacity-100" : ""
+                        }`}
                     />
 
                     {/* Pattern Card */}
                     <div
-                      className={`relative bg-gray-900/50 backdrop-blur-sm border rounded-xl p-6 transition-all duration-300 ${
-                        isActive ? "border-gray-700" : "border-gray-800 group-hover:border-gray-700"
-                      }`}>
+                      className={`relative bg-gray-900/50 backdrop-blur-sm border rounded-xl p-6 transition-all duration-300 ${isActive ? "border-gray-700" : "border-gray-800 group-hover:border-gray-700"
+                        }`}>
                       <div className="text-center">
                         <div
-                          className={`inline-flex p-3 rounded-xl mb-4 ${
-                            index === 0
-                              ? "bg-gradient-to-r from-blue-500 to-cyan-500"
-                              : index === 1
-                                ? "bg-gradient-to-r from-purple-500 to-pink-500"
-                                : index === 2
-                                  ? "bg-gradient-to-r from-green-500 to-emerald-500"
-                                  : "bg-gradient-to-r from-yellow-500 to-orange-500"
-                          }`}>
+                          className={`inline-flex p-3 rounded-xl mb-4 ${index === 0
+                            ? "bg-gradient-to-r from-dark-accent to-mid-accent"
+                            : index === 1
+                              ? "bg-gradient-to-r from-mid-accent to-light-accent"
+                              : index === 2
+                                ? "bg-gradient-to-r from-light-accent to-dark-accent"
+                                : "bg-gradient-to-r from-contrast-accent to-mid-accent"
+                            }`}>
                           <Icon className="w-8 h-8 text-white" />
                         </div>
 
@@ -308,7 +303,7 @@ export default function ArchitectureShowcase() {
                         <div className="space-y-2">
                           {pattern.benefits.slice(0, 2).map((benefit) => (
                             <div key={benefit} className="flex items-center justify-center text-gray-300 text-sm">
-                              <Shield className="w-4 h-4 text-green-500 mr-2" />
+                              <Shield className="w-4 h-4 text-contrast-accent mr-2" />
                               {benefit}
                             </div>
                           ))}
@@ -328,7 +323,7 @@ export default function ArchitectureShowcase() {
           </motion.div>
 
           {/* Security & Performance */}
-          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl p-8 border border-gray-800">
+          <div className="bg-gradient-to-r from-dark-accent/10 via-mid-accent/10 to-light-accent/10 rounded-3xl p-8 border border-gray-800">
             <div className="max-w-4xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -339,8 +334,8 @@ export default function ArchitectureShowcase() {
 
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 flex items-center justify-center mr-4 flex-shrink-0">
-                        <Shield className="w-6 h-6 text-blue-400" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-dark-accent/10 to-mid-accent/10 border border-dark-accent/20 flex items-center justify-center mr-4 flex-shrink-0">
+                        <Shield className="w-6 h-6 text-mid-accent" />
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white mb-2">Security First</h4>
@@ -351,8 +346,8 @@ export default function ArchitectureShowcase() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 flex items-center justify-center mr-4 flex-shrink-0">
-                        <Zap className="w-6 h-6 text-purple-400" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-mid-accent/10 to-light-accent/10 border border-mid-accent/20 flex items-center justify-center mr-4 flex-shrink-0">
+                        <Zap className="w-6 h-6 text-light-accent" />
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white mb-2">Optimized Performance</h4>
@@ -374,7 +369,7 @@ export default function ArchitectureShowcase() {
                           <span>&lt; 100ms</span>
                         </div>
                         <div className="w-full bg-gray-800 rounded-full h-2">
-                          <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 w-11/12" />
+                          <div className="h-2 rounded-full bg-gradient-to-r from-dark-accent to-light-accent w-11/12" />
                         </div>
                       </div>
 
@@ -384,7 +379,7 @@ export default function ArchitectureShowcase() {
                           <span>99.9%</span>
                         </div>
                         <div className="w-full bg-gray-800 rounded-full h-2">
-                          <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 w-full" />
+                          <div className="h-2 rounded-full bg-gradient-to-r from-mid-accent to-dark-accent w-full" />
                         </div>
                       </div>
 
@@ -394,7 +389,7 @@ export default function ArchitectureShowcase() {
                           <span>A+</span>
                         </div>
                         <div className="w-full bg-gray-800 rounded-full h-2">
-                          <div className="h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 w-10/12" />
+                          <div className="h-2 rounded-full bg-gradient-to-r from-contrast-accent to-mid-accent w-10/12" />
                         </div>
                       </div>
                     </div>
@@ -402,7 +397,7 @@ export default function ArchitectureShowcase() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="mt-8 w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center space-x-3">
+                      className="mt-8 w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-dark-accent/30 transition-all flex items-center justify-center space-x-3">
                       <Code className="w-5 h-5" />
                       <span>View Technical White Paper</span>
                       <ArrowRight className="w-5 h-5" />

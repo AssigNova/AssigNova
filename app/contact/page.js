@@ -35,13 +35,13 @@ export default function AssignovaContact() {
 
   const services = [
     "Web Development",
-    "Mobile Apps",
-    "UI/UX Design",
-    "Cloud Solutions",
-    "AI Integration",
-    "Digital Marketing",
-    "E-commerce",
-    "Consulting",
+    "Application Development",
+    "Automation",
+    "CMS / POS / ERP Systems",
+    "IT Support Services",
+    "Search Engine Optimization",
+    "Graphic Design",
+    "Brand Identity",
   ];
 
   useEffect(() => {
@@ -128,10 +128,25 @@ export default function AssignovaContact() {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          website: formData.company,
+          message: formData.message,
+          services: formData.service ? [formData.service] : [],
+        }),
+      });
 
-      console.log("Form submitted:", formData);
+      if (!response.ok) {
+        throw new Error("Failed to send message via API");
+      }
+
       setIsSubmitted(true);
       setFormData({
         name: "",
@@ -273,9 +288,8 @@ export default function AssignovaContact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full bg-gray-900/50 border ${
-                          errors.name ? "border-red-500/50" : "border-gray-700"
-                        } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all`}
+                        className={`w-full bg-gray-900/50 border ${errors.name ? "border-red-500/50" : "border-gray-700"
+                          } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all`}
                         placeholder="John Doe"
                       />
                       {errors.name && (
@@ -296,9 +310,8 @@ export default function AssignovaContact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full bg-gray-900/50 border ${
-                          errors.email ? "border-red-500/50" : "border-gray-700"
-                        } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all`}
+                        className={`w-full bg-gray-900/50 border ${errors.email ? "border-red-500/50" : "border-gray-700"
+                          } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all`}
                         placeholder="john@example.com"
                       />
                       {errors.email && (
@@ -321,9 +334,8 @@ export default function AssignovaContact() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`w-full bg-gray-900/50 border ${
-                          errors.phone ? "border-red-500/50" : "border-gray-700"
-                        } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all`}
+                        className={`w-full bg-gray-900/50 border ${errors.phone ? "border-red-500/50" : "border-gray-700"
+                          } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all`}
                         placeholder="+1 (555) 123-4567"
                       />
                       {errors.phone && (
@@ -361,11 +373,10 @@ export default function AssignovaContact() {
                           key={service}
                           type="button"
                           onClick={() => handleServiceSelect(service)}
-                          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                            selectedService === service
-                              ? "bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white"
-                              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                          }`}>
+                          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedService === service
+                            ? "bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white"
+                            : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                            }`}>
                           {service}
                         </button>
                       ))}
@@ -390,9 +401,8 @@ export default function AssignovaContact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className={`w-full bg-gray-900/50 border ${
-                        errors.message ? "border-red-500/50" : "border-gray-700"
-                      } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all resize-none`}
+                      className={`w-full bg-gray-900/50 border ${errors.message ? "border-red-500/50" : "border-gray-700"
+                        } rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all resize-none`}
                       placeholder="Tell us about your project, timeline, and budget..."
                     />
                     <div className="flex justify-between items-center mt-2">
@@ -458,9 +468,8 @@ export default function AssignovaContact() {
                       whileHover={{ y: -5 }}
                       className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition-all">
                       <div
-                        className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${info.color}/20 border ${
-                          info.color.split(" ")[0]
-                        }/30 mb-4`}>
+                        className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${info.color}/20 border ${info.color.split(" ")[0]
+                          }/30 mb-4`}>
                         <Icon className="w-6 h-6" />
                       </div>
                       <h3 className="text-lg font-bold mb-3">{info.title}</h3>

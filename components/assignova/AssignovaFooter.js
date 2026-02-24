@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Linkedin, Twitter, Github, Instagram, Facebook, Sparkles } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Twitter, Github, Instagram, Facebook } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function AssignovaFooter() {
   const currentYear = new Date().getFullYear();
@@ -44,11 +46,11 @@ export default function AssignovaFooter() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 relative flex items-center justify-center">
+                <Image src="/AssigNova-logo.svg" alt="Assignova Logo" width={48} height={48} className="w-full h-full object-contain drop-shadow-md" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold bg-linear-to-r from-dark-accent via-light-accent to-mid-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold text-white">
                   Assignova
                 </h2>
                 <p className="text-gray-400 text-sm">Next-Gen Digital Solutions</p>
@@ -127,15 +129,15 @@ export default function AssignovaFooter() {
             <div className="text-gray-400 text-sm">© {currentYear} Assignova. All rights reserved.</div>
 
             <div className="flex items-center space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

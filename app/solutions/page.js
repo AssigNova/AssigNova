@@ -2,12 +2,13 @@
 
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import dynamic from "next/dynamic";
 import SolutionsHero from "@/components/assignova/solutions/SolutionsHero";
-import IndustrySolutions from "@/components/assignova/solutions/IndustrySolutions";
-import ArchitectureShowcase from "@/components/assignova/solutions/ArchitectureShowcase";
-import SolutionFeatures from "@/components/assignova/solutions/SolutionFeatures";
-import InteractiveDemo from "@/components/assignova/solutions/InteractiveDemo";
-import SolutionCTASection from "@/components/assignova/solutions/SolutionCTASection";
+
+const IndustrySolutions = dynamic(() => import("@/components/assignova/solutions/IndustrySolutions"), { ssr: false });
+const ArchitectureShowcase = dynamic(() => import("@/components/assignova/solutions/ArchitectureShowcase"), { ssr: false });
+const SolutionFeatures = dynamic(() => import("@/components/assignova/solutions/SolutionFeatures"), { ssr: false });
+const SolutionCTASection = dynamic(() => import("@/components/assignova/solutions/SolutionCTASection"), { ssr: false });
 
 export default function SolutionsPage() {
   const containerRef = useRef(null);
@@ -19,7 +20,7 @@ export default function SolutionsPage() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.98]);
 
-  const [activeSolution, setActiveSolution] = useState("fintech");
+  const [activeSolution, setActiveSolution] = useState("automation");
 
   return (
     <div ref={containerRef} className="min-h-screen bg-gray-950 overflow-hidden">
@@ -91,7 +92,6 @@ export default function SolutionsPage() {
         <IndustrySolutions activeSolution={activeSolution} setActiveSolution={setActiveSolution} />
         <ArchitectureShowcase />
         <SolutionFeatures />
-        <InteractiveDemo />
         <SolutionCTASection />
       </motion.div>
 
@@ -115,8 +115,8 @@ export default function SolutionsPage() {
           </div>
 
           {/* Orbiting Navigation Points */}
-          {["Hero", "Industries", "Architecture", "Features", "Demo", "Start"].map((section, index) => {
-            const angle = index * 60 * (Math.PI / 180);
+          {["Hero", "Industries", "Architecture", "Features", "Start"].map((section, index) => {
+            const angle = index * (360 / 5) * (Math.PI / 180);
             const radius = 40;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
