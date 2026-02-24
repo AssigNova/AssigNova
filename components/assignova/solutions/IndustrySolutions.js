@@ -141,7 +141,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Left Column - Industry Cards */}
               <div className="relative">
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {Object.entries(industries).map(([key, industry], index) => {
                     const Icon = industry.icon;
                     const isActive = activeSolution === key;
@@ -154,7 +154,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ scale: 1.05, y: -5 }}
-                        className={`relative group ${isActive ? "col-span-2" : ""}`}>
+                        className={`relative group ${isActive ? "sm:col-span-2" : ""}`}>
                         {/* Background Glow */}
                         <div
                           className={`absolute inset-0 bg-gradient-to-r ${industry.color
@@ -194,7 +194,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                 </div>
 
                 {/* Additional Industries */}
-                <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {industryCards.map((industry, index) => {
                     const Icon = industry.icon;
 
@@ -307,7 +307,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                       </div>
 
                       {/* Stats Bar */}
-                      <div className="mt-8 pt-8 border-t border-gray-800">
+                      {/* <div className="mt-8 pt-8 border-t border-gray-800">
                         <div className="grid grid-cols-3 gap-6 text-center">
                           <div>
                             <div className="text-2xl font-bold text-white mb-2">{activeIndustry.stats.clients}+</div>
@@ -335,7 +335,7 @@ export default function IndustrySolutions({ activeSolution, setActiveSolution })
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

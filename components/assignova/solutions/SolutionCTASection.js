@@ -244,22 +244,22 @@ export default function SolutionCTASection() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  <div className="text-center p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-                    <div className="text-3xl font-bold text-white mb-2">99.9%</div>
-                    <div className="text-gray-400">Uptime SLA</div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+                  <div className="text-center p-3 sm:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+                    <div className="text-xl sm:text-3xl font-bold text-white mb-1 sm:mb-2 leading-none">99.9%</div>
+                    <div className="text-xs sm:text-sm text-gray-400 break-words">Uptime SLA</div>
                   </div>
-                  <div className="text-center p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-                    <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                    <div className="text-gray-400">Support</div>
+                  <div className="text-center p-3 sm:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+                    <div className="text-xl sm:text-3xl font-bold text-white mb-1 sm:mb-2 leading-none">24/7</div>
+                    <div className="text-xs sm:text-sm text-gray-400 break-words">Support</div>
                   </div>
-                  <div className="text-center p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-                    <div className="text-3xl font-bold text-white mb-2">&lt;100ms</div>
-                    <div className="text-gray-400">Response Time</div>
+                  <div className="text-center p-3 sm:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+                    <div className="text-xl sm:text-3xl font-bold text-white mb-1 sm:mb-2 leading-none">&lt;100ms</div>
+                    <div className="text-xs sm:text-sm text-gray-400 break-words">Response Time</div>
                   </div>
-                  <div className="text-center p-6 bg-gray-900/50 rounded-xl border border-gray-800">
-                    <div className="text-3xl font-bold text-white mb-2">500+</div>
-                    <div className="text-gray-400">Companies</div>
+                  <div className="text-center p-3 sm:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+                    <div className="text-xl sm:text-3xl font-bold text-white mb-1 sm:mb-2 leading-none">500+</div>
+                    <div className="text-xs sm:text-sm text-gray-400 break-words">Companies</div>
                   </div>
                 </div>
               </div>

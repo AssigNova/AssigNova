@@ -397,10 +397,10 @@ export default function ArchitectureShowcase() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="mt-8 w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-dark-accent/30 transition-all flex items-center justify-center space-x-3">
-                      <Code className="w-5 h-5" />
-                      <span>View Technical White Paper</span>
-                      <ArrowRight className="w-5 h-5" />
+                      className="mt-8 w-full bg-gradient-to-r from-dark-accent via-mid-accent to-light-accent text-white py-3 px-2 sm:px-4 rounded-xl font-bold text-sm sm:text-base hover:shadow-lg hover:shadow-dark-accent/30 transition-all flex items-center justify-center space-x-2 sm:space-x-3">
+                      <Code className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                      <span className="text-center leading-tight whitespace-normal sm:whitespace-nowrap">View Technical White Paper</span>
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                     </motion.button>
                   </div>
                 </div>
