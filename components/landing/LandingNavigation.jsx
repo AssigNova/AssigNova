@@ -6,12 +6,12 @@ export default function LandingNavigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "About Us", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Industries", href: "#Industries" },
-    { label: "Web Solutions", href: "#solutions" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: "web-solutions/#about" },
+    { label: "Services", href: "web-solutions/#services" },
+    { label: "Industries", href: "web-solutions/#Industries" },
+    { label: "Web Solutions", href: "web-solutions/#solutions" },
+    { label: "Testimonials", href: "web-solutions/#testimonials" },
+    { label: "Contact", href: "web-solutions/#contact" },
   ];
 
   const handleScroll = (href) => {
