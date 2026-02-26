@@ -6,6 +6,7 @@ import AssignovaNavigation from "@/components/assignova/AssignovaNavigation";
 import AssignovaFooter from "@/components/assignova/AssignovaFooter";
 import WhatsappButton from "@/components/WhatsappButtion";
 import NextTopLoader from "nextjs-toploader";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +48,8 @@ export const metadata = {
 
   openGraph: {
     title: "Assignova - Best Website Design & Development Company in India",
-    description: "We build modern, scalable and high-performance websites and applications for startups and enterprises worldwide.",
+    description:
+      "We build modern, scalable and high-performance websites and applications for startups and enterprises worldwide.",
     url: "https://assignova.com",
     siteName: "Assignova",
     images: [
@@ -65,7 +67,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Assignova - Website Design & Development Company",
-    description: "Custom websites, eCommerce platforms, UI/UX design & API integrations built for growth.",
+    description:
+      "Custom websites, eCommerce platforms, UI/UX design & API integrations built for growth.",
     images: ["/og-image.jpg"],
   },
 
@@ -88,21 +91,34 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <head>
         {/* Google Tag Manager */}
-<script>
+        <script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WWMWMR5S');</script>
-{/* <!-- End Google Tag Manager --> */}
+})(window,document,'script','dataLayer','GTM-WWMWMR5S');
+`,
+          }}
+        />
+        {/* <!-- End Google Tag Manager --> */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body className={`${inter.className} bg-gray-950 text-gray-100`}>
         {/* <!-- Google Tag Manager (noscript) --> */}
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWMWMR5S"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-{/* <!-- End Google Tag Manager (noscript) --> */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WWMWMR5S"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* <!-- End Google Tag Manager (noscript) --> */}
         <NextTopLoader
           color="#3b82f6"
           initialPosition={0.08}

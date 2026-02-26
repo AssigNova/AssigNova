@@ -8,7 +8,8 @@ export default function GoogleReviewsWidget() {
     // Prevent double-injection during React Strict Mode in development
     if (containerRef.current && !containerRef.current.querySelector("script")) {
       const script = document.createElement("script");
-      script.src = "https://cdn.trustindex.io/loader.js?ed8c13765fc938084c360502dc4";
+      script.src =
+        "https://cdn.trustindex.io/loader.js?ed8c13765fc938084c360502dc4";
       script.async = true;
       script.defer = true;
 
@@ -17,7 +18,10 @@ export default function GoogleReviewsWidget() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-gray-800/30 rounded-xl p-6 border border-gray-700 min-h-[150px]">
+    <div
+      ref={containerRef}
+      className="bg-gray-400/30 rounded-xl p-6 border border-gray-700 min-h-[150px]"
+    >
       {/* The Trustindex script and its widget will be injected right here */}
     </div>
   );

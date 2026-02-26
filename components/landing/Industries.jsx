@@ -68,16 +68,25 @@ export default function Portfolio() {
 
   const filters = ["all", "web-design", "ecommerce", "web-app"];
 
-  const filteredItems = activeFilter === "all" ? portfolioItems : portfolioItems.filter((item) => item.category === activeFilter);
+  const filteredItems =
+    activeFilter === "all"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-heading">
-            We Create <span className="text-light-accent">Websites for Various Industries</span>
+          <h2 className="text-4xl font-bold mb-4 text-heading gradient">
+            We Create{" "}
+            <span className=" second-text">
+              Websites for Various Industries
+            </span>
           </h2>
-          <p className="text-gray-900 max-w-2xl mx-auto mb-8">Expert web development services in India across diverse business verticals</p>
+          <p className="text-gray-900 max-w-2xl mx-auto mb-8">
+            Expert web development services in India across diverse business
+            verticals
+          </p>
 
           {/* Filter Buttons */}
           {/* <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -108,8 +117,11 @@ export default function Portfolio() {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group bg-gray-400/30 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all hover:scale-[1.02]">
-              <div className={`h-48 ${item.image} flex items-center justify-center`}>
+              className="group bg-gray-400/30 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all hover:scale-[1.02]"
+            >
+              <div
+                className={`h-48 ${item.image} flex items-center justify-center`}
+              >
                 <div className="text-5xl">
                   {item.category === "web-design"
                     ? "💻"
@@ -130,12 +142,17 @@ export default function Portfolio() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 gradient">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-2 gradient">
+                  {item.title}
+                </h3>
                 <p className="text-gray-900 mb-4">{item.desc}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.tech.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-gray-800 rounded-full text-xs">
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-gray-800 rounded-full text-xs"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -154,7 +171,7 @@ export default function Portfolio() {
 
         {/* Client Logos Carousel */}
         <div className="mt-20">
-          <h3 className="text-2xl font-bold text-center mb-8 text-heading">
+          <h3 className="text-2xl font-bold text-center mb-8 text-heading gradient">
             Trusted by <span className="second-text">Industry Leaders</span>
           </h3>
           <div className="relative overflow-hidden">
@@ -162,7 +179,11 @@ export default function Portfolio() {
               {[...logos, ...logos].map((logo, index) => (
                 <div key={index} className="flex-shrink-0">
                   <div className="w-40 h-20 bg-gradient-to-r from-gray-300 to-gray-300 rounded-xl flex items-center justify-center border border-gray-700 opacity-80 hover:opacity-100 transition-opacity">
-                    <img src={logo} alt="Client Logo" className="max-h-10 object-contain" />
+                    <img
+                      src={logo}
+                      alt="Client Logo"
+                      className="max-h-10 object-contain"
+                    />
                   </div>
                 </div>
               ))}
