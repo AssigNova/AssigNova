@@ -4,11 +4,22 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import AssignovaHero from "@/components/assignova/AssignovaHero";
+import Script from "next/script";
 
-const ServicesShowcase = dynamic(() => import("@/components/assignova/ServicesShowcase"), { ssr: false });
-const TechStack = dynamic(() => import("@/components/assignova/TechStack"), { ssr: false });
-const CaseStudiesPreview = dynamic(() => import("@/components/assignova/CaseStudiesPreview"), { ssr: false });
-const ContactCTA = dynamic(() => import("@/components/assignova/ContactCTA"), { ssr: false });
+const ServicesShowcase = dynamic(
+  () => import("@/components/assignova/ServicesShowcase"),
+  { ssr: false },
+);
+const TechStack = dynamic(() => import("@/components/assignova/TechStack"), {
+  ssr: false,
+});
+const CaseStudiesPreview = dynamic(
+  () => import("@/components/assignova/CaseStudiesPreview"),
+  { ssr: false },
+);
+const ContactCTA = dynamic(() => import("@/components/assignova/ContactCTA"), {
+  ssr: false,
+});
 
 export default function AssignovaHome() {
   const containerRef = useRef(null);
@@ -23,7 +34,23 @@ export default function AssignovaHome() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.98]);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gray-950 overflow-hidden">
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-gray-950 overflow-hidden"
+    >
+      <Script
+        id="microsoft-clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vomc5psc9v");
+          `,
+        }}
+      />
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div

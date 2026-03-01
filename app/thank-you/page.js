@@ -1,8 +1,22 @@
 import Link from "next/link";
+import Script from "next/script";
 
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center px-4">
+      <Script
+        id="microsoft-clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vomc5psc9v");
+          `,
+        }}
+      />
       <div className="max-w-2xl w-full text-center">
         {/* Icon */}
         <div className="mb-8">
